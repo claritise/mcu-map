@@ -44,3 +44,7 @@ yarn-error.log*
 
 # idea files
 .idea
+# Poster source images — re-fetchable with `pnpm posters --download`, and only
+# the optimised WebP in public/posters/ is ever served.
+/assets/posters-src/*
+!/assets/posters-src/manifest.json

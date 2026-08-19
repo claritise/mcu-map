@@ -1,0 +1,385 @@
+/**
+ * Simplified-Chinese character names, keyed by character id. `name` is the
+ * codename the map leads with; `alias` is the civilian name shown under it.
+ *
+ * Two continuities can share a name (both Daredevils, both Reeds) — the id
+ * keeps them apart, exactly as in the English data.
+ */
+export const ZH_CHARACTERS: Record<string, { name: string; alias?: string }> = {
+  // ── Avengers core ──────────────────────────────────────────────────────
+  "iron-man": { name: "钢铁侠", alias: "托尼·斯塔克" },
+  "captain-america": { name: "美国队长", alias: "史蒂夫·罗杰斯" },
+  thor: { name: "雷神托尔" },
+  hulk: { name: "浩克", alias: "布鲁斯·班纳" },
+  "black-widow": { name: "黑寡妇", alias: "娜塔莎·罗曼诺夫" },
+  hawkeye: { name: "鹰眼", alias: "克林特·巴顿" },
+  "nick-fury": { name: "尼克·弗瑞" },
+  "maria-hill": { name: "玛丽亚·希尔" },
+  "phil-coulson": { name: "菲尔·科尔森" },
+  "war-machine": { name: "战争机器", alias: "詹姆斯·罗兹" },
+  "pepper-potts": { name: "小辣椒·波兹" },
+  "happy-hogan": { name: "哈皮·霍根" },
+  falcon: { name: "猎鹰 / 美国队长", alias: "山姆·威尔逊" },
+  "winter-soldier": { name: "冬日战士", alias: "巴基·巴恩斯" },
+  "scarlet-witch": { name: "绯红女巫", alias: "旺达·马克西莫夫" },
+  vision: { name: "幻视" },
+  jarvis: { name: "贾维斯" },
+  "quicksilver-mcu": { name: "快银", alias: "皮特罗·马克西莫夫" },
+  "sharon-carter": { name: "莎伦·卡特" },
+  "peggy-carter": { name: "佩姬·卡特" },
+  "howard-stark": { name: "霍华德·斯塔克" },
+  "red-skull": { name: "红骷髅", alias: "约翰·施密特" },
+  zemo: { name: "泽莫男爵" },
+
+  // ── Asgard ─────────────────────────────────────────────────────────────
+  loki: { name: "洛基" },
+  odin: { name: "奥丁" },
+  heimdall: { name: "海姆达尔" },
+  sif: { name: "希芙" },
+  "jane-foster": { name: "简·福斯特 / 强大雷神" },
+  darcy: { name: "达西·刘易斯" },
+  "erik-selvig": { name: "埃里克·塞尔维格" },
+  hela: { name: "海拉" },
+  valkyrie: { name: "瓦尔基里" },
+  korg: { name: "寇格" },
+  grandmaster: { name: "宗师" },
+  gorr: { name: "屠神者格尔" },
+
+  // ── Cosmic ─────────────────────────────────────────────────────────────
+  thanos: { name: "灭霸" },
+  nebula: { name: "星云" },
+  gamora: { name: "卡魔拉" },
+  "star-lord": { name: "星爵", alias: "彼得·奎尔" },
+  drax: { name: "德拉克斯" },
+  rocket: { name: "火箭浣熊" },
+  groot: { name: "格鲁特" },
+  mantis: { name: "螳螂女" },
+  yondu: { name: "勇度" },
+  kraglin: { name: "克拉格林" },
+  ego: { name: "伊戈" },
+  "high-evolutionary": { name: "至高进化" },
+  "adam-warlock": { name: "亚当术士" },
+  collector: { name: "收藏者" },
+  ronan: { name: "控诉者罗南" },
+  korath: { name: "科拉斯" },
+
+  // ── Ant-Man ────────────────────────────────────────────────────────────
+  "ant-man": { name: "蚁人", alias: "斯科特·朗" },
+  wasp: { name: "黄蜂女", alias: "霍普·凡·戴恩" },
+  "hank-pym": { name: "汉克·皮姆" },
+  "janet-van-dyne": { name: "珍妮特·凡·戴恩" },
+  "cassie-lang": { name: "凯茜·朗" },
+  luis: { name: "路易斯" },
+
+  // ── Spider-Man ─────────────────────────────────────────────────────────
+  "spider-man": { name: "蜘蛛侠", alias: "彼得·帕克" },
+  mj: { name: "MJ", alias: "米歇尔·琼斯" },
+  ned: { name: "内德·利兹" },
+  "aunt-may": { name: "梅婶" },
+  vulture: { name: "秃鹫", alias: "阿德里安·图姆斯" },
+  mysterio: { name: "神秘客", alias: "昆汀·贝克" },
+
+  // ── Street level ───────────────────────────────────────────────────────
+  daredevil: { name: "夜魔侠", alias: "马特·默多克" },
+  "daredevil-fox": { name: "夜魔侠", alias: "马特·默多克" },
+  kingpin: { name: "金并", alias: "威尔逊·菲斯克" },
+  "kingpin-fox": { name: "金并", alias: "威尔逊·菲斯克" },
+  elektra: { name: "艾丽卡" },
+  "elektra-fox": { name: "艾丽卡" },
+  punisher: { name: "制裁者", alias: "弗兰克·卡塞尔" },
+  "karen-page": { name: "凯伦·佩奇" },
+  "foggy-nelson": { name: "福吉·尼尔森" },
+  "foggy-nelson-fox": { name: "福吉·尼尔森" },
+  bullseye: { name: "靶眼", alias: "本杰明·波因德克斯特" },
+  "bullseye-fox": { name: "靶眼" },
+  "white-tiger": { name: "白虎", alias: "赫克托·阿亚拉" },
+  "jessica-jones": { name: "杰西卡·琼斯" },
+  "luke-cage": { name: "卢克·凯奇" },
+  "heather-glenn": { name: "希瑟·格伦" },
+  swordsman: { name: "剑客", alias: "杰克·杜坎" },
+  "curtis-hoyle": { name: "柯蒂斯·霍伊尔" },
+
+  // ── New generation ─────────────────────────────────────────────────────
+  echo: { name: "回声", alias: "玛雅·洛佩兹" },
+  "kate-bishop": { name: "凯特·毕肖普" },
+  yelena: { name: "叶莲娜·贝洛娃" },
+  "red-guardian": { name: "红卫兵", alias: "阿列克谢·肖斯塔科夫" },
+  taskmaster: { name: "模仿大师", alias: "安东尼娅·德雷科夫" },
+  "us-agent": { name: "美国密探", alias: "约翰·沃克" },
+  ghost: { name: "幽灵", alias: "艾娃·斯塔尔" },
+  val: { name: "瓦伦蒂娜·阿莱格拉·德方丹" },
+  sentry: { name: "哨兵", alias: "鲍勃·雷诺兹" },
+
+  // ── Mystic ─────────────────────────────────────────────────────────────
+  "doctor-strange": { name: "奇异博士", alias: "斯蒂芬·斯特兰奇" },
+  wong: { name: "王" },
+  "ancient-one": { name: "古一" },
+  mordo: { name: "卡尔·莫度" },
+  "christine-palmer": { name: "克里斯汀·帕尔默" },
+  "america-chavez": { name: "阿美莉卡·查韦斯" },
+
+  // ── Cosmic-adjacent Earth ──────────────────────────────────────────────
+  "captain-marvel": { name: "惊奇队长", alias: "卡罗尔·丹弗斯" },
+  "monica-rambeau": { name: "光子", alias: "莫妮卡·兰博" },
+  "ms-marvel": { name: "惊奇少女", alias: "卡玛拉·汗" },
+  talos: { name: "塔洛斯" },
+  goose: { name: "呆头鹅" },
+
+  // ── TVA ────────────────────────────────────────────────────────────────
+  kang: { name: "康 / 存续者" },
+  mobius: { name: "莫比乌斯·M·莫比乌斯" },
+  sylvie: { name: "西尔维" },
+  ravonna: { name: "拉沃娜·伦斯莱尔" },
+  ob: { name: "衔尾蛇" },
+  watcher: { name: "观察者", alias: "尤阿图" },
+
+  // ── Wakanda ────────────────────────────────────────────────────────────
+  "black-panther": { name: "黑豹", alias: "特查拉" },
+  shuri: { name: "苏睿" },
+  okoye: { name: "奥科耶" },
+  mbaku: { name: "姆巴库" },
+  killmonger: { name: "杀人豹", alias: "埃里克·史蒂文斯" },
+  namor: { name: "纳摩" },
+  "everett-ross": { name: "埃弗雷特·罗斯" },
+  riri: { name: "钢铁心", alias: "莉莉·威廉姆斯" },
+
+  // ── Ten Rings ──────────────────────────────────────────────────────────
+  "shang-chi": { name: "尚气" },
+  xialing: { name: "夏灵" },
+  wenwu: { name: "文武 / 满大人" },
+  "trevor-slattery": { name: "特雷弗·斯莱特里" },
+
+  // ── Others ─────────────────────────────────────────────────────────────
+  "moon-knight": { name: "月光骑士", alias: "马克·斯佩克特 / 史蒂文·格兰特" },
+  "she-hulk": { name: "女浩克", alias: "詹妮弗·沃特斯" },
+  abomination: { name: "憎恶", alias: "埃米尔·布朗斯基" },
+  "thunderbolt-ross": { name: "撒迪厄斯·罗斯 / 红浩克" },
+  ikaris: { name: "伊卡里斯" },
+  sersi: { name: "瑟西" },
+  agatha: { name: "阿加莎·哈克尼斯" },
+  "billy-maximoff": { name: "术士小子", alias: "比利·马克西莫夫" },
+  clea: { name: "克莉亚" },
+
+  // ── Fantastic Four ─────────────────────────────────────────────────────
+  "reed-richards": { name: "神奇先生", alias: "里德·理查兹" },
+  "reed-richards-fox": { name: "神奇先生", alias: "里德·理查兹" },
+  "sue-storm": { name: "隐形女", alias: "苏·斯托姆" },
+  "sue-storm-fox": { name: "隐形女", alias: "苏·斯托姆" },
+  "johnny-storm": { name: "霹雳火", alias: "约翰尼·斯托姆" },
+  "johnny-storm-fox": { name: "霹雳火", alias: "约翰尼·斯托姆" },
+  "the-thing": { name: "石头人", alias: "本·格里姆" },
+  "the-thing-fox": { name: "石头人", alias: "本·格里姆" },
+  "doctor-doom": { name: "末日博士", alias: "维克多·冯·杜姆" },
+  "doctor-doom-fox": { name: "末日博士", alias: "维克多·冯·杜姆" },
+  "silver-surfer": { name: "银影侠", alias: "夏拉·芭尔" },
+  "silver-surfer-fox": { name: "银影侠", alias: "诺林·雷德" },
+  galactus: { name: "星际吞噬者" },
+
+  // ── X-Men ──────────────────────────────────────────────────────────────
+  wolverine: { name: "金刚狼", alias: "罗根" },
+  "professor-x": { name: "X教授", alias: "查尔斯·泽维尔" },
+  magneto: { name: "万磁王", alias: "埃里克·兰谢尔" },
+  mystique: { name: "魔形女", alias: "瑞雯·达克霍姆" },
+  "jean-grey": { name: "琴·葛蕾 / 凤凰女" },
+  "jean-grey-mcu": { name: "琴·葛蕾" },
+  cyclops: { name: "镭射眼", alias: "斯科特·萨默斯" },
+  storm: { name: "暴风女", alias: "奥萝萝·门罗" },
+  rogue: { name: "小淘气" },
+  beast: { name: "野兽", alias: "汉克·麦考伊" },
+  iceman: { name: "冰人", alias: "博比·德雷克" },
+  nightcrawler: { name: "夜行者", alias: "库尔特·瓦格纳" },
+  "quicksilver-fox": { name: "快银", alias: "彼得·马克西莫夫" },
+  "kitty-pryde": { name: "小猫" },
+  colossus: { name: "钢力士" },
+  "emma-frost": { name: "艾玛·弗罗斯特" },
+  "sebastian-shaw": { name: "塞巴斯蒂安·肖" },
+  apocalypse: { name: "天启", alias: "恩·沙巴·努尔" },
+  stryker: { name: "威廉·史崔克" },
+  sabretooth: { name: "剑齿虎", alias: "维克多·克里德" },
+
+  // ── Deadpool ───────────────────────────────────────────────────────────
+  deadpool: { name: "死侍", alias: "韦德·威尔逊" },
+  cable: { name: "电索" },
+  domino: { name: "多米诺" },
+  negasonic: { name: "青春弹头" },
+  vanessa: { name: "凡妮莎·卡莱尔" },
+  laura: { name: "X-23", alias: "劳拉" },
+  caliban: { name: "卡利班" },
+  trask: { name: "波利瓦·特拉斯克" },
+  moira: { name: "莫伊拉·麦克塔格特" },
+  psylocke: { name: "灵蝶" },
+  magik: { name: "魔法凤凰", alias: "伊利亚娜·拉斯普京" },
+  "cassandra-nova": { name: "卡珊德拉·诺娃" },
+  "tva-paradox": { name: "帕拉多克斯先生" },
+
+  // ── Villains and supporting ────────────────────────────────────────────
+  ultron: { name: "奥创" },
+  klaue: { name: "尤利西斯·克劳" },
+  sterns: { name: "首脑", alias: "塞缪尔·斯特恩斯" },
+  "obadiah-stane": { name: "铁霸王", alias: "奥巴代亚·斯坦" },
+  "ivan-vanko": { name: "鞭锋", alias: "伊万·万科" },
+  killian: { name: "奥尔德里奇·基里安" },
+  malekith: { name: "马勒基斯" },
+
+  // ── Eternals ───────────────────────────────────────────────────────────
+  ajak: { name: "阿贾克" },
+  thena: { name: "西娜" },
+  kingo: { name: "金戈" },
+  sprite: { name: "斯普莱特" },
+  phastos: { name: "法斯托斯" },
+  makkari: { name: "马卡瑞" },
+  druig: { name: "德鲁伊格" },
+  gilgamesh: { name: "吉尔伽美什" },
+  "dane-whitman": { name: "戴恩·惠特曼" },
+  starfox: { name: "星狐", alias: "厄洛斯" },
+
+  // ── Moon Knight and monsters ───────────────────────────────────────────
+  layla: { name: "绯红圣甲虫", alias: "蕾拉·埃尔法乌利" },
+  "arthur-harrow": { name: "亚瑟·哈罗" },
+  khonshu: { name: "孔苏" },
+  "jack-russell": { name: "暗夜狼人", alias: "杰克·拉塞尔" },
+  "elsa-bloodstone": { name: "埃尔莎·血石" },
+  "man-thing": { name: "沼泽异形" },
+  verussa: { name: "薇露莎·血石" },
+
+  // ── Shang-Chi supporting ───────────────────────────────────────────────
+  katy: { name: "凯蒂·陈" },
+  "razor-fist": { name: "利刃拳" },
+  "ying-nan": { name: "英男" },
+
+  // ── Magic and crime ────────────────────────────────────────────────────
+  "the-hood": { name: "兜帽人", alias: "帕克·罗宾斯" },
+  mephisto: { name: "梅菲斯特" },
+  "zeke-stane": { name: "以西结·斯坦" },
+  "rio-vidal": { name: "死亡", alias: "里奥·维达尔" },
+  lilia: { name: "莉莉娅·卡尔德鲁" },
+  "jen-kale": { name: "詹妮弗·凯尔" },
+  "alice-gulliver": { name: "爱丽丝·吴-格列佛" },
+
+  // ── Skrulls and government ─────────────────────────────────────────────
+  gravik: { name: "格拉维克" },
+  giah: { name: "吉阿" },
+  "sonya-falsworth": { name: "索尼娅·法尔斯沃思" },
+  "joaquin-torres": { name: "猎鹰", alias: "华金·托雷斯" },
+  "isaiah-bradley": { name: "以赛亚·布拉德利" },
+  "ruth-bat-seraph": { name: "露丝·巴特-塞拉夫" },
+  "betty-ross": { name: "贝蒂·罗斯" },
+  sidewinder: { name: "响尾蛇", alias: "赛斯·沃尔克" },
+
+  // ── Ms. Marvel supporting ──────────────────────────────────────────────
+  bruno: { name: "布鲁诺·卡雷利" },
+  kamran: { name: "卡姆兰" },
+  najma: { name: "娜杰玛" },
+  "red-dagger": { name: "红匕首", alias: "卡里姆" },
+  cleary: { name: "P·克利里" },
+  "maria-rambeau": { name: "惊奇队长", alias: "玛丽亚·兰博" },
+  "black-bolt": { name: "黑蝠王", alias: "布莱卡加·博尔塔冈" },
+  lylla: { name: "莱拉" },
+  stakar: { name: "斯塔卡·奥戈德" },
+  "mole-man": { name: "鼹鼠人", alias: "哈维·埃尔德" },
+
+  // ── New Mutants ────────────────────────────────────────────────────────
+  "dani-moonstar": { name: "幻影", alias: "丹妮·月星" },
+  wolfsbane: { name: "狼毒", alias: "雷恩·辛克莱" },
+  cannonball: { name: "加农炮", alias: "山姆·格思里" },
+  sunspot: { name: "太阳黑子", alias: "罗伯托·达科斯塔" },
+  "cecilia-reyes": { name: "塞西莉亚·雷耶斯" },
+  vuk: { name: "武克" },
+
+  // ── Deadpool supporting ────────────────────────────────────────────────
+  ajax: { name: "阿贾克斯", alias: "弗朗西斯·弗里曼" },
+  weasel: { name: "黄鼠狼" },
+  "blind-al": { name: "瞎眼老太" },
+  dopinder: { name: "多平德" },
+  "angel-dust": { name: "天使尘" },
+  yukio: { name: "雪绪" },
+  firefist: { name: "火拳", alias: "拉塞尔·柯林斯" },
+  blade: { name: "刀锋战士", alias: "埃里克·布鲁克斯" },
+  pyro: { name: "火人", alias: "约翰·阿勒代斯" },
+
+  // ── Upcoming ───────────────────────────────────────────────────────────
+  "wonder-man": { name: "奇迹人", alias: "西蒙·威廉姆斯" },
+  "bill-metzger": { name: "比尔·梅茨格" },
+  "ma-gnucci": { name: "格努奇老妈" },
+  "nico-minoru": { name: "妮可·美野里" },
+  "norman-osborn": { name: "诺曼·奥斯本" },
+  "harry-osborn": { name: "哈里·奥斯本" },
+  "otto-octavius": { name: "奥托·奥克塔维斯" },
+  tombstone: { name: "墓碑", alias: "朗尼·林肯" },
+  noni: { name: "诺尼" },
+  nkati: { name: "恩卡蒂" },
+  bkai: { name: "布凯" },
+  jorani: { name: "铁拳", alias: "乔拉尼" },
+
+  // ── Earth-838 (the Illuminati's world) ─────────────────────────────────
+  "reed-richards-838": { name: "神奇先生", alias: "里德·理查兹" },
+  "captain-carter-838": { name: "卡特队长", alias: "佩姬·卡特" },
+  "professor-x-838": { name: "X教授", alias: "查尔斯·泽维尔" },
+
+  // ── Fant4stic (2015) ───────────────────────────────────────────────────
+  "reed-richards-fox-2015": { name: "神奇先生", alias: "里德·理查兹" },
+  "sue-storm-fox-2015": { name: "隐形女", alias: "苏·斯托姆" },
+  "johnny-storm-fox-2015": { name: "霹雳火", alias: "约翰尼·斯托姆" },
+  "the-thing-fox-2015": { name: "石头人", alias: "本·格里姆" },
+  "doctor-doom-fox-2015": { name: "末日博士", alias: "维克多·冯·杜姆" },
+
+  // ── Sony: Raimi's Spider-Man ───────────────────────────────────────────
+  "spider-man-96283": { name: "蜘蛛侠", alias: "彼得·帕克" },
+  "green-goblin-96283": { name: "绿魔", alias: "诺曼·奥斯本" },
+  "doc-ock-96283": { name: "章鱼博士", alias: "奥托·奥克塔维斯" },
+  "sandman-96283": { name: "沙人", alias: "弗林特·马科" },
+  "venom-96283": { name: "毒液", alias: "埃迪·布洛克" },
+  "mj-96283": { name: "玛丽·简·沃森" },
+  "harry-osborn-96283": { name: "哈里·奥斯本" },
+  "aunt-may-96283": { name: "梅婶" },
+  "uncle-ben-96283": { name: "本叔" },
+  "j-jonah-jameson-96283": { name: "J·乔纳·詹姆森" },
+
+  // ── Sony: The Amazing Spider-Man ───────────────────────────────────────
+  "spider-man-120703": { name: "蜘蛛侠", alias: "彼得·帕克" },
+  "lizard-120703": { name: "蜥蜴人", alias: "柯特·康纳斯" },
+  "electro-120703": { name: "电光人", alias: "麦克斯·狄龙" },
+  "gwen-stacy-120703": { name: "格温·斯泰西" },
+  "harry-osborn-120703": { name: "哈里·奥斯本" },
+  "aunt-may-120703": { name: "梅婶" },
+  "captain-stacy-120703": { name: "斯泰西警长" },
+
+  // ── Sony's Spider-Man Universe ─────────────────────────────────────────
+  "venom-eddie": { name: "毒液", alias: "埃迪·布洛克" },
+  "anne-weying": { name: "安妮·韦英" },
+  carnage: { name: "屠杀", alias: "克莱图斯·卡萨迪" },
+  riot: { name: "暴乱" },
+  knull: { name: "克努尔" },
+  morbius: { name: "莫比亚斯", alias: "迈克尔·莫比亚斯" },
+  "vulture-688": { name: "秃鹫", alias: "阿德里安·图姆斯" },
+  "madame-web": { name: "蜘蛛夫人", alias: "卡珊德拉·韦伯" },
+  "ezekiel-sims": { name: "以西结·西姆斯" },
+  kraven: { name: "猎人克莱文", alias: "谢尔盖·克拉维诺夫" },
+  "rhino-688": { name: "犀牛人", alias: "阿列克谢·塞茨维奇" },
+
+  // ── Spider-Verse ───────────────────────────────────────────────────────
+  "miles-morales": { name: "蜘蛛侠", alias: "迈尔斯·莫拉莱斯" },
+  "kingpin-1610": { name: "金并", alias: "威尔逊·菲斯克" },
+  "prowler-1610": { name: "潜行者", alias: "亚伦·戴维斯" },
+  "the-spot": { name: "斑点", alias: "乔纳森·奥恩" },
+  "peter-b-parker": { name: "蜘蛛侠", alias: "彼得·B·帕克" },
+  "gwen-stacy-65": { name: "蜘蛛格温", alias: "格温·斯泰西" },
+  "jessica-drew": { name: "蜘蛛女侠", alias: "杰西卡·德鲁" },
+  "miguel-ohara": { name: "2099 蜘蛛侠", alias: "米格尔·奥哈拉" },
+  "spider-man-noir": { name: "暗影蜘蛛侠" },
+
+  // ── Earth-616, Friendly Neighborhood timeline ──────────────────────────
+  "spider-man-yfnsm": { name: "蜘蛛侠", alias: "彼得·帕克" },
+  "aunt-may-yfnsm": { name: "梅婶" },
+
+  // ── Earth-10005, First Class era ───────────────────────────────────────
+  "professor-x-first-class": { name: "X教授", alias: "查尔斯·泽维尔" },
+  "magneto-first-class": { name: "万磁王", alias: "埃里克·兰谢尔" },
+  "mystique-first-class": { name: "魔形女", alias: "瑞雯·达克霍姆" },
+  "jean-grey-first-class": { name: "琴·葛蕾 / 凤凰女" },
+  "cyclops-first-class": { name: "镭射眼", alias: "斯科特·萨默斯" },
+  "storm-first-class": { name: "暴风女", alias: "奥萝萝·门罗" },
+  "beast-first-class": { name: "野兽", alias: "汉克·麦考伊" },
+  "nightcrawler-first-class": { name: "夜行者", alias: "库尔特·瓦格纳" },
+  "stryker-first-class": { name: "威廉·史崔克" },
+};

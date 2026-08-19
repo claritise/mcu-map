@@ -1,6 +1,115 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Warm-neutral dark palette. */
+  --color-canvas-bg: #101010;
+  --color-canvas-dot: #2c2c2a;
+  --color-surface: #161615;
+  --color-surface-elevated: #1a1a19;
+  --color-border: #2a2a28;
+  --color-text-primary: #d0cfca;
+  --color-text-body: #b5b4ae;
+  --color-text-secondary: #9b9a91;
+  --color-text-muted: #6f6e66;
+
+  /* Highlight roles: what you must watch, and what you are looking at. */
+  /* Direct prerequisite, further-back ancestor. A traced character has no
+     colour of its own: it wears the accent of the reality it comes from. */
+  --color-required: #e8b14c;
+  --color-ancestor: #7f9bd1;
+}
+
+html,
+body {
+  background-color: var(--color-canvas-bg);
+  color: var(--color-text-primary);
+}
+
+/* The tapered hairline: panel dividers are never a flat full-bleed border. */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border) 30%,
+    var(--color-border) 70%,
+    transparent
+  );
+}
+
+/*
+ * Zoom slider: a bare rail with a single warm handle.
+ *
+ * On touch the INPUT is 44px tall so a thumb can actually catch it, but a 44px
+ * rail would be a slab, so the rail is painted as a track inside that box and
+ * the extra height is invisible hit area. Desktop keeps the 4px element.
+ */
+@media (max-width: 1023px) {
+  .zoom-slider::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .zoom-slider::-moz-range-track {
+    height: 4px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Bigger handle to match the bigger target, and nudged back onto the rail:
+     a webkit thumb is positioned from the top of the track, not its centre. */
+  .zoom-slider::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    margin-top: -8px;
+  }
+
+  .zoom-slider::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.zoom-slider::-webkit-slider-thumb {
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 9999px;
+  background: var(--color-text-primary);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.zoom-slider::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border: none;
+  border-radius: 9999px;
+  background: var(--color-text-primary);
+  cursor: pointer;
+}
+
+/* Dependency lines read as an overlay on the poster wall, not as something
+   threaded behind it, otherwise a line vanishes the moment it crosses a card. */
+.react-flow__edges {
+  z-index: 20 !important;
+}
+
+.react-flow__edge {
+  pointer-events: none;
+}
+
+/* React Flow ships its own dark canvas (#141414) on both the root element and
+   the dot-pattern layer, which read as a seam against the chrome column.
+   One background across both panes. */
+.react-flow,
+.react-flow__background {
+  --xy-background-color-default: var(--color-canvas-bg);
+  background-color: var(--color-canvas-bg) !important;
 }

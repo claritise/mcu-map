@@ -1,0 +1,382 @@
+{
+  "across-spider-verse": {
+    "file": "across-spider-verse.jpg",
+    "fit": "cover"
+  },
+  "agatha-all-along": {
+    "file": "agatha-all-along.jpg",
+    "fit": "contain"
+  },
+  "age-of-ultron": {
+    "file": "age-of-ultron.jpg",
+    "fit": "cover"
+  },
+  "amazing-spider-man-2": {
+    "file": "amazing-spider-man-2.jpg",
+    "fit": "cover"
+  },
+  "amazing-spider-man": {
+    "file": "amazing-spider-man.jpg",
+    "fit": "cover"
+  },
+  "ant-man-wasp": {
+    "file": "ant-man-wasp.jpg",
+    "fit": "cover"
+  },
+  "ant-man": {
+    "file": "ant-man.jpg",
+    "fit": "cover"
+  },
+  "apocalypse": {
+    "file": "apocalypse.jpg",
+    "fit": "cover"
+  },
+  "avengers-doomsday": {
+    "file": "avengers-doomsday.jpg",
+    "fit": "cover"
+  },
+  "avengers-secret-wars": {
+    "file": "avengers-secret-wars.png",
+    "fit": "contain"
+  },
+  "avengers": {
+    "file": "avengers.jpg",
+    "fit": "cover"
+  },
+  "black-panther": {
+    "file": "black-panther.jpg",
+    "fit": "cover"
+  },
+  "black-widow": {
+    "file": "black-widow.jpg",
+    "fit": "cover"
+  },
+  "born-again-s2": {
+    "file": "born-again-s2.jpeg",
+    "fit": "cover"
+  },
+  "brand-new-day": {
+    "file": "brand-new-day.jpg",
+    "fit": "cover"
+  },
+  "brave-new-world": {
+    "file": "brave-new-world.jpg",
+    "fit": "cover"
+  },
+  "captain-marvel": {
+    "file": "captain-marvel.jpg",
+    "fit": "cover"
+  },
+  "civil-war": {
+    "file": "civil-war.jpg",
+    "fit": "cover"
+  },
+  "daredevil-2003": {
+    "file": "daredevil-2003.jpg",
+    "fit": "cover"
+  },
+  "daredevil-born-again": {
+    "file": "daredevil-born-again.jpeg",
+    "fit": "contain"
+  },
+  "dark-phoenix": {
+    "file": "dark-phoenix.png",
+    "fit": "cover"
+  },
+  "days-of-future-past": {
+    "file": "days-of-future-past.jpg",
+    "fit": "cover"
+  },
+  "deadpool-2": {
+    "file": "deadpool-2.jpg",
+    "fit": "cover"
+  },
+  "deadpool-wolverine": {
+    "file": "deadpool-wolverine.jpg",
+    "fit": "cover"
+  },
+  "deadpool": {
+    "file": "deadpool.png",
+    "fit": "cover"
+  },
+  "doctor-strange": {
+    "file": "doctor-strange.jpg",
+    "fit": "cover"
+  },
+  "echo": {
+    "file": "echo.jpg",
+    "fit": "contain"
+  },
+  "elektra-2005": {
+    "file": "elektra-2005.jpg",
+    "fit": "cover"
+  },
+  "endgame": {
+    "file": "endgame.jpg",
+    "fit": "cover"
+  },
+  "eternals": {
+    "file": "eternals.jpeg",
+    "fit": "cover"
+  },
+  "eyes-of-wakanda": {
+    "file": "eyes-of-wakanda.jpg",
+    "fit": "contain"
+  },
+  "falcon-winter-soldier": {
+    "file": "falcon-winter-soldier.png",
+    "fit": "contain"
+  },
+  "fant4stic": {
+    "file": "fant4stic.jpg",
+    "fit": "cover"
+  },
+  "fantastic-four-2005": {
+    "file": "fantastic-four-2005.jpg",
+    "fit": "cover"
+  },
+  "fantastic-four-first-steps": {
+    "file": "fantastic-four-first-steps.jpg",
+    "fit": "cover"
+  },
+  "far-from-home": {
+    "file": "far-from-home.jpg",
+    "fit": "cover"
+  },
+  "first-avenger": {
+    "file": "first-avenger.jpg",
+    "fit": "cover"
+  },
+  "first-class": {
+    "file": "first-class.jpg",
+    "fit": "cover"
+  },
+  "gotg-2": {
+    "file": "gotg-2.jpg",
+    "fit": "cover"
+  },
+  "gotg-3": {
+    "file": "gotg-3.jpg",
+    "fit": "cover"
+  },
+  "gotg-holiday": {
+    "file": "gotg-holiday.jpg",
+    "fit": "cover"
+  },
+  "guardians": {
+    "file": "guardians.jpg",
+    "fit": "cover"
+  },
+  "hawkeye": {
+    "file": "hawkeye.png",
+    "fit": "contain"
+  },
+  "homecoming": {
+    "file": "homecoming.jpg",
+    "fit": "cover"
+  },
+  "incredible-hulk": {
+    "file": "incredible-hulk.jpg",
+    "fit": "cover"
+  },
+  "infinity-war": {
+    "file": "infinity-war.jpg",
+    "fit": "cover"
+  },
+  "into-spider-verse": {
+    "file": "into-spider-verse.png",
+    "fit": "cover"
+  },
+  "iron-man-2": {
+    "file": "iron-man-2.jpg",
+    "fit": "cover"
+  },
+  "iron-man-3": {
+    "file": "iron-man-3.jpg",
+    "fit": "cover"
+  },
+  "iron-man": {
+    "file": "iron-man.jpg",
+    "fit": "cover"
+  },
+  "ironheart": {
+    "file": "ironheart.png",
+    "fit": "contain"
+  },
+  "kraven": {
+    "file": "kraven.jpg",
+    "fit": "cover"
+  },
+  "last-stand": {
+    "file": "last-stand.jpg",
+    "fit": "cover"
+  },
+  "logan": {
+    "file": "logan.jpg",
+    "fit": "cover"
+  },
+  "loki-s1": {
+    "file": "loki-s1.png",
+    "fit": "contain"
+  },
+  "loki-s2": {
+    "file": "loki-s2.png",
+    "fit": "contain"
+  },
+  "love-and-thunder": {
+    "file": "love-and-thunder.jpeg",
+    "fit": "cover"
+  },
+  "madame-web": {
+    "file": "madame-web.jpg",
+    "fit": "cover"
+  },
+  "marvel-zombies": {
+    "file": "marvel-zombies.png",
+    "fit": "contain"
+  },
+  "moon-knight": {
+    "file": "moon-knight.jpg",
+    "fit": "contain"
+  },
+  "morbius": {
+    "file": "morbius.jpg",
+    "fit": "cover"
+  },
+  "ms-marvel": {
+    "file": "ms-marvel.jpg",
+    "fit": "contain"
+  },
+  "multiverse-of-madness": {
+    "file": "multiverse-of-madness.jpg",
+    "fit": "cover"
+  },
+  "new-mutants": {
+    "file": "new-mutants.jpeg",
+    "fit": "cover"
+  },
+  "no-way-home": {
+    "file": "no-way-home.jpg",
+    "fit": "cover"
+  },
+  "origins-wolverine": {
+    "file": "origins-wolverine.jpg",
+    "fit": "cover"
+  },
+  "punisher-one-last-kill": {
+    "file": "punisher-one-last-kill.jpg",
+    "fit": "cover"
+  },
+  "quantumania": {
+    "file": "quantumania.jpg",
+    "fit": "cover"
+  },
+  "ragnarok": {
+    "file": "ragnarok.jpg",
+    "fit": "cover"
+  },
+  "rise-silver-surfer": {
+    "file": "rise-silver-surfer.jpg",
+    "fit": "cover"
+  },
+  "secret-invasion": {
+    "file": "secret-invasion.jpg",
+    "fit": "contain"
+  },
+  "shang-chi": {
+    "file": "shang-chi.jpeg",
+    "fit": "cover"
+  },
+  "she-hulk": {
+    "file": "she-hulk.jpg",
+    "fit": "contain"
+  },
+  "spider-man-2": {
+    "file": "spider-man-2.jpg",
+    "fit": "cover"
+  },
+  "spider-man-2002": {
+    "file": "spider-man-2002.jpg",
+    "fit": "cover"
+  },
+  "spider-man-3": {
+    "file": "spider-man-3.jpg",
+    "fit": "cover"
+  },
+  "the-marvels": {
+    "file": "the-marvels.jpg",
+    "fit": "cover"
+  },
+  "the-wolverine": {
+    "file": "the-wolverine.jpg",
+    "fit": "cover"
+  },
+  "thor-dark-world": {
+    "file": "thor-dark-world.jpg",
+    "fit": "cover"
+  },
+  "thor": {
+    "file": "thor.jpg",
+    "fit": "cover"
+  },
+  "thunderbolts": {
+    "file": "thunderbolts.jpg",
+    "fit": "cover"
+  },
+  "venom-carnage": {
+    "file": "venom-carnage.jpg",
+    "fit": "cover"
+  },
+  "venom-last-dance": {
+    "file": "venom-last-dance.jpg",
+    "fit": "cover"
+  },
+  "venom": {
+    "file": "venom.png",
+    "fit": "cover"
+  },
+  "visionquest": {
+    "file": "visionquest.jpg",
+    "fit": "contain"
+  },
+  "wakanda-forever": {
+    "file": "wakanda-forever.jpg",
+    "fit": "cover"
+  },
+  "wandavision": {
+    "file": "wandavision.png",
+    "fit": "contain"
+  },
+  "werewolf-by-night": {
+    "file": "werewolf-by-night.jpg",
+    "fit": "cover"
+  },
+  "what-if-s1": {
+    "file": "what-if-s1.png",
+    "fit": "contain"
+  },
+  "what-if-s2": {
+    "file": "what-if-s2.jpeg",
+    "fit": "cover"
+  },
+  "what-if-s3": {
+    "file": "what-if-s3.jpeg",
+    "fit": "cover"
+  },
+  "winter-soldier": {
+    "file": "winter-soldier.jpg",
+    "fit": "cover"
+  },
+  "x-men": {
+    "file": "x-men.jpg",
+    "fit": "cover"
+  },
+  "x2": {
+    "file": "x2.jpg",
+    "fit": "cover"
+  },
+  "your-friendly-neighborhood-spider-man": {
+    "file": "your-friendly-neighborhood-spider-man.png",
+    "fit": "contain"
+  }
+}
