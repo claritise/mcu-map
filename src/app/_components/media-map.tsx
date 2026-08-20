@@ -231,6 +231,12 @@ function MapCanvas() {
   const selectTitle = useCallback((id: string) => {
     setSelected(id);
     setDetailCollapsed(false);
+    /* Picking realities is a setup step, so the chips fold away to make room
+       for the details. Here rather than on the canvas handler, so a shared
+       link and a click on a prerequisite row arrive the same way a tap on a
+       poster does — a deep link used to open with the legend still expanded,
+       which on a laptop left the panel a 47px slot. */
+    setRealitiesOpen(false);
   }, []);
 
   /**
@@ -288,7 +294,6 @@ function MapCanvas() {
       // the card you were just about to open.
       event.preventDefault();
       selectTitle(id);
-      setRealitiesOpen(false);
     },
     [selectTitle],
   );
@@ -363,6 +368,54 @@ function MapCanvas() {
   }, []);
 
   /**
+   * How much of the map pane the chrome is sitting on top of.
+   *
+   * On a phone the controls and the detail panel are a sheet floating over the
+   * bottom of the map rather than a column beside it, so the pane is taller
+   * than the part of it anyone can actually see. Every camera figure below
+   * works from the visible band instead — fit into it, centre in it, and let
+   * the pan extent carry the oldest row up out from under it.
+   *
+   * Without this the first decade of the timeline sat permanently behind the
+   * search field: at fit zoom on a 375×812 phone, thirteen cards — X-Men,
+   * Spider-Man, Daredevil, the 2005 Fantastic Four, Iron Man itself — were
+   * under the sheet with no way to reach them. Which is exactly how people
+   * came to report titles as missing that were on the map all along.
+   */
+  const chrome = useRef<HTMLElement>(null);
+  const [bottomInset, setBottomInset] = useState(0);
+  useEffect(() => {
+    const el = chrome.current;
+    if (!el || !compact) {
+      setBottomInset(0);
+      return;
+    }
+    const measure = () => setBottomInset(el.getBoundingClientRect().height);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+    // `selected` swaps which card is in the sheet, and the two are nothing
+    // like the same height.
+  }, [compact, selected, detailCollapsed]);
+
+  /**
+   * The inset the camera's BOUNDS work from, which is not the same number.
+   *
+   * Reserving the controls sheet is the whole point — that is what kept the
+   * first decade of the timeline reachable. Reserving the detail panel is not:
+   * it opens over 70% of the screen, and deciding what "fit" means against the
+   * remaining 30% squeezed twenty-eight years into 244px, put every poster at
+   * seven pixels and dropped the dependency lines altogether. So the fit never
+   * gives up more than a third of the pane, and a title being open moves the
+   * camera through the effect further down instead.
+   */
+  const fitInset = Math.min(bottomInset, Math.round(paneHeight * 0.34));
+
+  /** What `fit` and the zoom floor are measured against. */
+  const fitHeight = Math.max(120, paneHeight - fitInset);
+
+  /**
    * The laid-out graph's horizontal box. The year labels hang off the left of
    * every row, so the content is NOT symmetric around flow-x 0, so the camera has
    * to centre on this midpoint, or the gutter falls off the edge at high zoom.
@@ -425,8 +478,8 @@ function MapCanvas() {
   const fitZoom = useMemo(() => {
     const height =
       Math.max(1, contentBox.bottom - contentBox.top) + EDGE_MARGIN * 2;
-    return Math.min(fullZoom, paneHeight / height);
-  }, [contentBox.bottom, contentBox.top, paneHeight, fullZoom]);
+    return Math.min(fullZoom, fitHeight / height);
+  }, [contentBox.bottom, contentBox.top, fitHeight, fullZoom]);
 
   /**
    * In timeline mode the camera is rail-mounted: the graph stays centred,
@@ -446,10 +499,25 @@ function MapCanvas() {
    */
   const verticalSlack = Math.max(
     0,
-    (paneHeight / Math.max(fitZoom, 0.02) -
+    (fitHeight / Math.max(fitZoom, 0.02) -
       (contentBox.bottom - contentBox.top)) /
       2,
   );
+
+  /**
+   * Extra room at the bottom of the extent, worth exactly the height of the
+   * sheet, so the last row can be scrolled up clear of it instead of stopping
+   * dead underneath.
+   *
+   * Quantised to 5% steps of the zoom. The extent's identity has to stay
+   * stable across a moving camera (see the memo below), and a raw zoom in the
+   * denominator would hand d3 a fresh array on every frame of a pinch.
+   */
+  const insetSlack = useMemo(() => {
+    if (!bottomInset) return 0;
+    const step = Math.max(fitZoom, Math.round(zoom * 20) / 20, 0.02);
+    return bottomInset / step;
+  }, [bottomInset, fitZoom, zoom]);
 
   /*
    * Memoised, and not for the allocation. React Flow hands this straight to
@@ -462,9 +530,9 @@ function MapCanvas() {
     () =>
       [
         [-1e6, contentBox.top - verticalSlack],
-        [1e6, contentBox.bottom + verticalSlack],
+        [1e6, contentBox.bottom + verticalSlack + insetSlack],
       ] as [[number, number], [number, number]],
-    [contentBox.top, contentBox.bottom, verticalSlack],
+    [contentBox.top, contentBox.bottom, verticalSlack, insetSlack],
   );
 
   /**
@@ -484,15 +552,19 @@ function MapCanvas() {
       const pane = livePane();
       const contentHeight = Math.max(1, contentBox.bottom - contentBox.top);
       const stage = Math.max(120, pane.width - railW - railGap);
+      /* The sheet's height, not the pane's: fitting into glass the phone's
+         chrome is sitting on top of is how the oldest rows ended up behind
+         the search field. */
+      const band = Math.max(120, pane.height - fitInset);
       const zoomTo = Math.min(
         Math.min(2, Math.max(0.1, stage / contentBox.width)),
-        pane.height / (contentHeight + EDGE_MARGIN * 2),
+        band / (contentHeight + EDGE_MARGIN * 2),
       );
       const onScreen = contentHeight * zoomTo;
       void setViewport(
         {
           x: railW + railGap + stage / 2 - contentBox.mid * zoomTo,
-          y: (pane.height - onScreen) / 2 - contentBox.top * zoomTo,
+          y: (band - onScreen) / 2 - contentBox.top * zoomTo,
           zoom: zoomTo,
         },
         { duration },
@@ -508,6 +580,7 @@ function MapCanvas() {
       railW,
       railGap,
       setViewport,
+      fitInset,
     ],
   );
 
@@ -543,7 +616,7 @@ function MapCanvas() {
       void setViewport(
         {
           x: centreX(fullZoom),
-          y: paneHeight / 2 - (contentBox.top + contentHeight / 2) * fullZoom,
+          y: fitHeight / 2 - (contentBox.top + contentHeight / 2) * fullZoom,
           zoom: fullZoom,
         },
         { duration },
@@ -555,7 +628,7 @@ function MapCanvas() {
       contentBox.bottom,
       contentBox.top,
       fullZoom,
-      paneHeight,
+      fitHeight,
       setViewport,
     ],
   );
@@ -625,7 +698,9 @@ function MapCanvas() {
    */
   const sizedFor = useRef("");
   useEffect(() => {
-    const key = `${paneWidth}x${paneHeight}`;
+    /* The sheet's height counts: opening a title on a phone takes 70% of the
+       screen, and that changes what "fits" means as much as a rotation does. */
+    const key = `${paneWidth}x${paneHeight}x${fitInset}`;
     if (sizedFor.current === key) return;
     const first = sizedFor.current === "";
     sizedFor.current = key;
@@ -644,6 +719,7 @@ function MapCanvas() {
   }, [
     paneWidth,
     paneHeight,
+    fitInset,
     maxZoom,
     fitZoom,
     centreX,
@@ -703,7 +779,10 @@ function MapCanvas() {
       const next = Math.min(maxZoom, Math.max(fitZoom, raw));
       const view = getViewport();
       const pane = livePane();
-      const anchor = pane.height / 2;
+      /* The middle of the visible band, not of the pane: on a phone the pane's
+         own midpoint can be behind the sheet, and zooming towards a point you
+         cannot see walks the map out from under you. */
+      const anchor = Math.max(120, pane.height - bottomInset) / 2;
       /*
        * Up to 100% the graph is narrower than the stage and stays centred on
        * it. Past that it no longer fits, so the camera holds whatever is in the
@@ -733,6 +812,7 @@ function MapCanvas() {
       setViewport,
       stageWidth,
       takeCamera,
+      bottomInset,
     ],
   );
 
@@ -759,6 +839,87 @@ function MapCanvas() {
     () => (selected ? prerequisitesOf(selected, MAX_KIND) : new Set<string>()),
     [selected],
   );
+
+  /**
+   * On a phone, frame the title you just opened.
+   *
+   * Tapping a poster puts a sheet over 70% of the screen, and more often than
+   * not the card you tapped — with every line drawn to its prerequisites — was
+   * underneath it. Nothing appeared to happen at all.
+   *
+   * Lifting it into the visible band is not enough on its own: the phone opens
+   * fitted, where a poster is fifteen pixels tall and an arrow between two of
+   * them is a smudge. So the camera also closes in, far enough that the
+   * selection and the titles it points at fill the band the sheet leaves. That
+   * is the shot the tap was asking for — this one, and what you watch before
+   * it, at a size where the lines read.
+   */
+  useEffect(() => {
+    if (!compact || !selected || detailCollapsed) return;
+    const at = positions.get(selected);
+    const title = TITLE_BY_ID.get(selected);
+    if (!at || !title) return;
+
+    /* The selected card plus its direct prerequisites: the arrows need both
+       ends on screen to say anything. */
+    let top = at.y;
+    let bottom = at.y + CARD[title.medium].h;
+    let left = at.x;
+    let right = at.x + CARD[title.medium].w;
+    for (const id of direct.keys()) {
+      const parent = positions.get(id);
+      const parentTitle = TITLE_BY_ID.get(id);
+      if (!parent || !parentTitle) continue;
+      const card = CARD[parentTitle.medium];
+      top = Math.min(top, parent.y);
+      bottom = Math.max(bottom, parent.y + card.h);
+      left = Math.min(left, parent.x);
+      right = Math.max(right, parent.x + card.w);
+    }
+
+    const band = Math.max(120, paneHeight - bottomInset);
+    const stage = Math.max(120, paneWidth - railW - railGap);
+    const pad = 24;
+    const zoomTo = Math.min(
+      maxZoom,
+      Math.max(
+        // Never below the current zoom: closing in is welcome, being pushed
+        // further out because a chain is wide is not.
+        zoom,
+        Math.min(
+          stage / Math.max(1, right - left + pad * 2),
+          band / Math.max(1, bottom - top + pad * 2),
+        ),
+      ),
+    );
+
+    const spanY = (bottom - top) * zoomTo;
+    /* Taller than the band even so: pin the selection near the top and let the
+       chain run off above it, rather than shrinking it back to a smudge. */
+    const y =
+      spanY > band - pad
+        ? pad - at.y * zoomTo
+        : (band - spanY) / 2 - top * zoomTo;
+    const x = railW + railGap + stage / 2 - ((left + right) / 2) * zoomTo;
+
+    void setViewport({ x, y, zoom: zoomTo });
+    setZoom(zoomTo);
+    setViewportState({ y, zoom: zoomTo });
+  }, [
+    compact,
+    selected,
+    detailCollapsed,
+    positions,
+    direct,
+    setViewport,
+    paneHeight,
+    paneWidth,
+    bottomInset,
+    railW,
+    railGap,
+    maxZoom,
+    zoom,
+  ]);
 
   const toggleCharacter = useCallback((id: string) => {
     setCharacters((prev) => {
@@ -1022,10 +1183,7 @@ function MapCanvas() {
              rather than vanishing — the chips are also the map's colour key,
              and a key that disappears the moment you open a title reads as a
              bug rather than as something you can open again. */
-          onNodeClick={(_, node) => {
-            selectTitle(node.id);
-            setRealitiesOpen(false);
-          }}
+          onNodeClick={(_, node) => selectTitle(node.id)}
           onPaneClick={() => setSelected(null)}
           /*
            * Any viewport change (fit, slider, pinch) keeps the readout honest —
@@ -1093,7 +1251,10 @@ function MapCanvas() {
       {/* Desktop keeps its own column beside the map. A phone has no room for
           one, so the same cards become a bottom sheet: the map keeps the full
           screen and the chrome floats over the bottom of it. */}
-      <aside className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex max-h-[70dvh] flex-col justify-end gap-3 p-3 lg:pointer-events-auto lg:static lg:h-full lg:max-h-none lg:w-[396px] lg:shrink-0 lg:justify-start">
+      <aside
+        ref={chrome}
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex max-h-[70dvh] flex-col justify-end gap-3 p-3 lg:pointer-events-auto lg:static lg:h-full lg:max-h-none lg:w-[396px] lg:shrink-0 lg:justify-start"
+      >
         {/* One surface for the whole control set: filters, camera, legend. */}
         <animated.div
           {...sheetSwipe.swipe}
@@ -1102,7 +1263,11 @@ function MapCanvas() {
             /* One card at a time on a phone: reading a title takes the sheet,
                and folding the details is for getting the MAP back — handing the
                controls their 500px again would just re-cover it. */
-            selected ? "max-lg:hidden" : ""
+            /* On a laptop both cards share the column, and the controls used
+               to win it: 406px of a 720px column, leaving the panel a 47px
+               window onto 3300px of prerequisites and cast. With a title open
+               they are capped and scroll internally instead. */
+            selected ? "max-lg:hidden lg:max-h-[38%]" : ""
           }`}
         >
           <div className="flex items-center justify-between gap-3 px-4 pt-3.5 pb-3">
@@ -1469,7 +1634,7 @@ function MapCanvas() {
                only as tall as its own bar, because a flex-1 box around it
                would go on swallowing taps meant for the map. */
             className={`pointer-events-auto flex flex-col ${
-              collapsedDetail ? "shrink-0" : "min-h-0 flex-1 lg:min-h-[40%]"
+              collapsedDetail ? "shrink-0" : "min-h-0 flex-1 lg:min-h-[62%]"
             }`}
           >
             <DetailPanel
