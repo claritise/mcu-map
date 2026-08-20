@@ -269,8 +269,22 @@ export function DetailPanel({
   const links = watchLinks(title);
 
   return (
-    <aside className="bg-surface flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-white/5 shadow-2xl shadow-black/60 max-lg:rounded-b-none max-lg:border-x-0 max-lg:border-b-0">
-      <header className="p-4">
+    /*
+     * Where the scrolling happens depends on the shape the panel is in.
+     *
+     * On a laptop the panel is a card in a column with a fixed height: the
+     * artwork, title and links stay put as a masthead and only the lists below
+     * move, so what you are reading about never leaves the screen.
+     *
+     * On a phone it is a drawer, and that split wastes the screen — the
+     * masthead alone is most of the 70% the sheet gets, leaving a slot barely
+     * taller than one prerequisite row to scroll a whole cast list through. So
+     * the drawer scrolls as one piece and the header goes with it. Swiping the
+     * sheet down still dismisses it, because `scrollerAtTop` in media-map.tsx
+     * asks whichever ancestor is actually scrolling, not a hard-coded one.
+     */
+    <aside className="bg-surface flex min-h-0 flex-1 flex-col rounded-lg border border-white/5 shadow-2xl shadow-black/60 max-lg:overflow-y-auto max-lg:rounded-b-none max-lg:border-x-0 max-lg:border-b-0 lg:overflow-hidden">
+      <header className="p-4 max-lg:shrink-0">
         <div className="flex gap-3">
           <Artwork id={titleId} name={t.titleName(title)} />
 
@@ -413,9 +427,11 @@ export function DetailPanel({
         )}
       </header>
 
-      <div className="hairline mx-4" />
+      <div className="hairline mx-4 max-lg:shrink-0" />
 
-      <div className="flex-1 overflow-y-auto px-4 py-4 max-lg:pb-[calc(1rem+env(safe-area-inset-bottom))]">
+      {/* The scroller on a laptop; just the lower half of one on a phone,
+          where the drawer above is doing the scrolling. */}
+      <div className="px-4 py-4 max-lg:pb-[calc(1rem+env(safe-area-inset-bottom))] lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
         <section>
           <div className="flex items-baseline justify-between gap-3">
             <h3 className={`${RUN_LABEL} text-text-secondary`}>

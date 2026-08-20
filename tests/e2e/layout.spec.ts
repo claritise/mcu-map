@@ -85,22 +85,30 @@ test.describe("laptop, a title selected", () => {
     await settle(page);
 
     /*
-     * Found by what it contains rather than by its position in the aside: the
-     * controls sheet scrolls too, and "the second scroll container" is the kind
-     * of selector that goes on passing while pointing at the wrong element.
+     * Found by walking up from the heading to whatever is actually scrolling,
+     * rather than by a utility class. An earlier version of this test looked
+     * for `.overflow-y-auto`, which stopped matching the moment that scroll
+     * moved to a breakpoint variant — a false failure that said nothing about
+     * the bug it exists to catch. What matters is that the prerequisites sit
+     * in a scrolling box with room to read, whichever element owns it.
      */
-    const scroller = page
-      .locator("aside .overflow-y-auto")
-      // Case-insensitive: the heading is uppercased in CSS, not in the markup.
-      .filter({ has: page.getByRole("heading", { name: /watch first/i }) });
+    const scroller = await page.evaluateHandle(() => {
+      const heading = [...document.querySelectorAll("aside h3")].find((h) =>
+        /watch first/i.test(h.textContent ?? ""),
+      );
+      for (let el = heading?.parentElement; el; el = el.parentElement) {
+        if (/(auto|scroll)/.test(getComputedStyle(el).overflowY)) return el;
+      }
+      return null;
+    });
 
-    await expect(scroller).toHaveCount(1);
-    const box = (await scroller.boundingBox())!;
-    expect(box.height).toBeGreaterThan(150);
+    const box = await scroller.asElement()!.boundingBox();
+    expect(box, "no scrolling ancestor above the prerequisites").not.toBeNull();
+    expect(box!.height).toBeGreaterThan(150);
 
     // And it is a window onto more than it can show, which is the whole point.
     const overflow = await scroller.evaluate(
-      (el) => el.scrollHeight - el.clientHeight,
+      (el: Element) => el.scrollHeight - el.clientHeight,
     );
     expect(overflow).toBeGreaterThan(0);
   });
