@@ -17,20 +17,20 @@ const HOST = `http://127.0.0.1:${PORT}`;
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: true,
-  /* A committed `.only` silently shrinks CI's run to one test. */
+  /* A committed `.only` silently shrinks the run to one test. */
   forbidOnly: !!process.env.CI,
   /*
    * The assertions are about a camera that animates into place, so the failure
-   * mode on a loaded CI box is "measured too early" rather than "wrong". The
+   * mode on a loaded machine is "measured too early" rather than "wrong". The
    * specs wait for the viewport transform to stop moving before measuring; the
    * retry is for the case where even that wait loses a race with a cold
    * Turbopack compile.
    */
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  /* CI also writes the HTML report, which is what the workflow uploads: the
-     failures here are visual, and a stack trace cannot show a card sitting
-     under a sheet. */
+  /* `CI=1 pnpm e2e` also writes the HTML report, which is worth reaching for
+     when something fails: these failures are visual, and a stack trace cannot
+     show a card sitting under a sheet the way a trace can. */
   reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL: HOST,

@@ -182,8 +182,8 @@ detail panel with a window worth scrolling on a 720px-tall laptop column. Those 
 comparisons between a rendered card's box and the rendered chrome's, so nothing short of a
 real browser at a real size can make them.
 
-Both run on every push and pull request, alongside a production build, via
-[.github/workflows/ci.yml](.github/workflows/ci.yml).
+Nothing runs either of them for you — there is no CI on this repo — so `pnpm check`
+before a push is the whole safety net.
 
 ## Reading the map
 

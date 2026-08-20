@@ -92,24 +92,27 @@ test.describe("laptop, a title selected", () => {
      * the bug it exists to catch. What matters is that the prerequisites sit
      * in a scrolling box with room to read, whichever element owns it.
      */
-    const scroller = await page.evaluateHandle(() => {
+    const scroller = await page.evaluate(() => {
       const heading = [...document.querySelectorAll("aside h3")].find((h) =>
         /watch first/i.test(h.textContent ?? ""),
       );
       for (let el = heading?.parentElement; el; el = el.parentElement) {
-        if (/(auto|scroll)/.test(getComputedStyle(el).overflowY)) return el;
+        if (!/(auto|scroll)/.test(getComputedStyle(el).overflowY)) continue;
+        return {
+          height: el.getBoundingClientRect().height,
+          overflow: el.scrollHeight - el.clientHeight,
+        };
       }
       return null;
     });
 
-    const box = await scroller.asElement()!.boundingBox();
-    expect(box, "no scrolling ancestor above the prerequisites").not.toBeNull();
-    expect(box!.height).toBeGreaterThan(150);
+    expect(
+      scroller,
+      "no scrolling ancestor above the prerequisites",
+    ).not.toBeNull();
+    expect(scroller!.height).toBeGreaterThan(150);
 
     // And it is a window onto more than it can show, which is the whole point.
-    const overflow = await scroller.evaluate(
-      (el: Element) => el.scrollHeight - el.clientHeight,
-    );
-    expect(overflow).toBeGreaterThan(0);
+    expect(scroller!.overflow).toBeGreaterThan(0);
   });
 });
