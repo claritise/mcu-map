@@ -5,6 +5,10 @@ export const ZH_BANNERS: Record<BannerId, string> = {
   marvel: "漫威影业",
   fox: "二十世纪福斯",
   sony: "索尼",
+  newline: "新线影业",
+  lionsgate: "狮门影业",
+  universal: "环球影业",
+  newworld: "新世界影业",
 };
 
 /** Reality names and the one-liner that explains each. */
@@ -73,6 +77,36 @@ export const ZH_REALITIES: Record<RealityId, { label: string; blurb: string }> =
       label: "2099 年的新纽约",
       blurb: "米格尔·奥哈拉的未来，也是蜘蛛联盟的基地。",
     },
+    "ghost-rider-films": {
+      label: "凯奇版恶灵骑士",
+      blurb: "哥伦比亚的两部《恶灵骑士》。没有官方编号。",
+    },
+    "earth-616-tv": {
+      label: "漫威电视",
+      blurb:
+        "《神盾局特工》《特工卡特》《异人族》《逃亡者》《斗篷与匕首》。它们不断提及电影，电影却从未回应。",
+    },
+    "blade-trilogy": {
+      label: "刀锋战士",
+      blurb: "新线的三部曲 —— 证明漫威改编能成立的那部片子。",
+    },
+    "universal-hulk": {
+      label: "李安版绿巨人",
+      blurb:
+        "2003 年的《绿巨人浩克》。无论《无敌浩克》怎么暗示，它自成一个世界。",
+    },
+    "punisher-2004": {
+      label: "惩罚者（2004）",
+      blurb: "托马斯·简版的弗兰克·卡斯尔。",
+    },
+    "punisher-war-zone": {
+      label: "惩罚者：战争特区",
+      blurb: "四年后的重启，换了一位弗兰克。",
+    },
+    "punisher-1989": {
+      label: "惩罚者（1989）",
+      blurb: "多尔夫·龙格尔版，也是银幕上第一位漫威惩罚者。",
+    },
   };
 
 /**
@@ -118,6 +152,12 @@ export const ZH_SAGAS: Record<string, string> = {
   "The Amazing Spider-Man": "超凡蜘蛛侠",
   "Sony's Spider-Man Universe": "索尼蜘蛛侠宇宙",
   "Spider-Verse": "蜘蛛宇宙",
+  "Marvel Television": "漫威电视",
+  "Marvel Netflix": "漫威网飞",
+  "The Punisher on Film": "银幕上的惩罚者",
+  "Blade Trilogy": "刀锋战士三部曲",
+  "Ang Lee's Hulk": "李安版绿巨人",
+  "Ghost Rider": "恶灵骑士",
 };
 
 /** Full phase names, as they appear in the data. */
@@ -142,6 +182,8 @@ export const ZH_PHASES_SHORT: Record<string, string> = {
 
 /** `CastEntry.note`: how a character turns up in a given title. */
 export const ZH_CAST_NOTES: Record<string, string> = {
+  crossover: "跨剧集客串",
+  "as Roarke": "饰罗尔克",
   cameo: "客串",
   "PSA cameo": "公益短片客串",
   "post-credits": "片尾彩蛋",

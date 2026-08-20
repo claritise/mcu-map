@@ -3,7 +3,14 @@
  * films — and it can contain several realities: Marvel Studios alone shoots on
  * three distinct Earths.
  */
-export type BannerId = "marvel" | "fox" | "sony";
+export type BannerId =
+  | "marvel"
+  | "fox"
+  | "sony"
+  | "newline"
+  | "lionsgate"
+  | "universal"
+  | "newworld";
 
 /**
  * A single reality. This, not the studio, is what a title is set in and what a
@@ -25,7 +32,14 @@ export type RealityId =
   | "earth-616-atsv"
   | "earth-65"
   | "earth-928"
-  | "earth-90214";
+  | "earth-90214"
+  | "earth-616-tv"
+  | "blade-trilogy"
+  | "universal-hulk"
+  | "punisher-1989"
+  | "punisher-2004"
+  | "punisher-war-zone"
+  | "ghost-rider-films";
 
 export type Medium = "film" | "series" | "special";
 

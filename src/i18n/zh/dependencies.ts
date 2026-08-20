@@ -234,4 +234,56 @@ export const ZH_DEPENDENCIES: Record<string, string> = {
     "它的彩蛋把埃迪丢进漫威宇宙；这部的片尾彩蛋又把他送了回去。",
   "no-way-home->venom-last-dance":
     "埃迪从漫威宇宙回家，带回了那道咒语留下的东西。",
+  "blade->blade-2": "直接续集，开场就是惠斯勒的下场。",
+  "blade-2->blade-trinity":
+    "同一个刀锋，围猎已经升级；第三部默认你看过这一路。",
+  "ghost-rider-2007->spirit-of-vengeance":
+    "同一个布雷兹、同一笔交易，但从头再讲了一遍 —— 直接从这里看起，只会漏掉起源。",
+  "avengers->agents-of-shield-s1":
+    "这部剧之所以存在，是因为纽约大战，也因为科尔森死在里面。",
+  "agents-of-shield-s1->agents-of-shield-s2": "一路连着讲下来。",
+  "agents-of-shield-s2->agents-of-shield-s3": "一路连着讲下来。",
+  "agents-of-shield-s3->agents-of-shield-s4": "一路连着讲下来。",
+  "agents-of-shield-s4->agents-of-shield-s5": "一路连着讲下来。",
+  "agents-of-shield-s5->agents-of-shield-s6": "一路连着讲下来。",
+  "agents-of-shield-s6->agents-of-shield-s7": "一路连着讲下来。",
+  "winter-soldier->agents-of-shield-s2":
+    "神盾局在电影里垮台，剧后来做的一切都是从那片废墟上重建的。",
+  "first-avenger->agent-carter-s1": "佩姬对史蒂夫的哀恸，是整部剧的发动机。",
+  "agent-carter-s1->agent-carter-s2": "直接续接。",
+  "runaways-s1->runaways-s2": "一路连着讲下来。",
+  "runaways-s2->runaways-s3": "一路连着讲下来。",
+  "cloak-dagger-s1->cloak-dagger-s2": "一路连着讲下来。",
+  "cloak-dagger-s2->runaways-s3": "泰隆和坦迪在最后一季里联动登场。",
+  "avengers->daredevil-nf-s1":
+    "地狱厨房正在纽约大战之后重建，而剧里从头到尾只把它叫作「那件事」。",
+  "daredevil-nf-s1->daredevil-nf-s2": "直接续接，连同菲斯克一起。",
+  "daredevil-nf-s2->daredevil-nf-s3": "艾丽卡和手合会的线在这里收。",
+  "jessica-jones-s1->jessica-jones-s2":
+    "直接续接；第二季讲的是第一季让她付出了什么。",
+  "jessica-jones-s2->jessica-jones-s3": "崔西的转变是直接从这里长出来的。",
+  "luke-cage-s1->luke-cage-s2": "玛丽亚和影子都延续了下来。",
+  "iron-fist-s1->iron-fist-s2": "直接续接。",
+  "jessica-jones-s1->luke-cage-s1":
+    "卢克是在杰西卡第一季里登场的，他带着妻子的死进入自己的剧。",
+  "daredevil-nf-s2->punisher-nf-s1":
+    "弗兰克的整条线从那里开始；这部剧默认你已经知道。",
+  "punisher-nf-s1->punisher-nf-s2": "直接续接，鲁索也一样。",
+  "daredevil-nf-s2->defenders":
+    "八集要把四个主角凑到一个房间里，谁也不会再介绍一遍。",
+  "jessica-jones-s1->defenders":
+    "八集要把四个主角凑到一个房间里，谁也不会再介绍一遍。",
+  "luke-cage-s1->defenders":
+    "八集要把四个主角凑到一个房间里，谁也不会再介绍一遍。",
+  "iron-fist-s1->defenders":
+    "八集要把四个主角凑到一个房间里，谁也不会再介绍一遍。",
+  "defenders->daredevil-nf-s3":
+    "第三季开场就接在《捍卫者联盟》留下马特的地方。",
+  "defenders->iron-fist-s2": "之后丹尼接手了马特那片地界。",
+  "defenders->luke-cage-s2": "卢克是从那件事之后回到哈莱姆的。",
+  "defenders->jessica-jones-s2": "紧接着不久后的杰西卡。",
+  "daredevil-nf-s3->daredevil-born-again":
+    "《重生》是直接续接：马特、菲斯克、凯伦和福吉都带着那段历史出场。",
+  "punisher-nf-s2->punisher-one-last-kill":
+    "同一个弗兰克，从网飞那一批之后接着讲。",
 };

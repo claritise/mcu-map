@@ -31,6 +31,10 @@ export const BANNERS: Record<BannerId, { label: string; lane: number }> = {
   marvel: { label: "Marvel Studios", lane: 0 },
   fox: { label: "20th Century Fox", lane: 1 },
   sony: { label: "Sony", lane: 2 },
+  newline: { label: "New Line", lane: 3 },
+  universal: { label: "Universal", lane: 4 },
+  lionsgate: { label: "Lionsgate", lane: 5 },
+  newworld: { label: "New World", lane: 6 },
 };
 
 /**
@@ -201,6 +205,75 @@ export const REALITIES: Record<
     lane: 6,
     sourcing: "screen",
     blurb: "Miguel O'Hara's future, and the Spider-Society's base.",
+  },
+  "ghost-rider-films": {
+    label: "Cage's Ghost Rider",
+    banner: "sony",
+    accent: "#f97316",
+    lane: 8,
+    sourcing: "unofficial",
+    blurb: "Columbia's two Ghost Rider films. No designation on record.",
+  },
+  /*
+   * Marvel Television, kept apart from the films on purpose.
+   *
+   * The Netflix run is NOT here — Daredevil: Born Again picks Matt Murdock up
+   * mid-life and Echo brings Fisk across, so those shows are Earth-616 like
+   * anything else. The ABC and Hulu shows are the contested ones: they
+   * reference the films constantly and the films have never once referenced
+   * them, and Marvel has never said either way. Giving them their own
+   * continuity says that, rather than asserting a join nobody has confirmed.
+   */
+  "earth-616-tv": {
+    label: "Marvel Television",
+    banner: "marvel",
+    accent: "#c084fc",
+    lane: 3,
+    sourcing: "unofficial",
+    blurb:
+      "Agents of S.H.I.E.L.D., Agent Carter, Inhumans, Runaways, Cloak & Dagger. Referenced the films constantly; never referenced back.",
+  },
+  "blade-trilogy": {
+    label: "Blade",
+    banner: "newline",
+    accent: "#dc2626",
+    lane: 0,
+    sourcing: "unofficial",
+    blurb:
+      "New Line's trilogy — the film that proved a Marvel adaptation could work.",
+  },
+  "universal-hulk": {
+    label: "Ang Lee's Hulk",
+    banner: "universal",
+    accent: "#65a30d",
+    lane: 0,
+    sourcing: "unofficial",
+    blurb:
+      "The 2003 Hulk. Its own world, whatever The Incredible Hulk implies.",
+  },
+  "punisher-2004": {
+    label: "The Punisher (2004)",
+    banner: "lionsgate",
+    accent: "#94a3b8",
+    lane: 0,
+    sourcing: "unofficial",
+    blurb: "Thomas Jane's Frank Castle.",
+  },
+  "punisher-war-zone": {
+    label: "Punisher: War Zone",
+    banner: "lionsgate",
+    accent: "#64748b",
+    lane: 1,
+    sourcing: "unofficial",
+    blurb: "A reboot four years later, with a different Frank.",
+  },
+  "punisher-1989": {
+    label: "The Punisher (1989)",
+    banner: "newworld",
+    accent: "#78716c",
+    lane: 0,
+    sourcing: "unofficial",
+    blurb: "Dolph Lundgren's, and the first Marvel Punisher on film.",
   },
 };
 

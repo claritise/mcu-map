@@ -49,7 +49,9 @@ const expected = {
   dependencies: values(DEPENDENCIES, (d) => `${d.from}->${d.to}`),
   people: new Set([
     ...CHARACTERS.flatMap((c) => c.actors),
-    ...TITLES.flatMap((t) => t.cast.map((entry) => entry.actor).filter(Boolean)),
+    ...TITLES.flatMap((t) =>
+      t.cast.map((entry) => entry.actor).filter(Boolean),
+    ),
     ...Object.values(METADATA).flatMap((m) => m.director ?? m.creator ?? []),
   ]),
   "cast notes": values(TITLES, (t) => t.cast.map((entry) => entry.note)),
@@ -84,13 +86,16 @@ for (const [label, want] of Object.entries(expected)) {
       `FAIL ${label}: ${want.size} in the data, ${got.size} translated`,
     );
     if (missing.length) console.error(`  untranslated: ${missing.join(", ")}`);
-    if (stale.length) console.error(`  gone from the data: ${stale.join(", ")}`);
+    if (stale.length)
+      console.error(`  gone from the data: ${stale.join(", ")}`);
   } else {
     console.log(`ok   ${label}: ${want.size}`);
   }
 }
 
 if (failed) {
-  console.error("\nAdd the missing entries to src/i18n/zh, or drop the stale ones.");
+  console.error(
+    "\nAdd the missing entries to src/i18n/zh, or drop the stale ones.",
+  );
   process.exit(1);
 }

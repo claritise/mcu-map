@@ -10,9 +10,9 @@ records below, not these.
 
 |              | before | after (2026-08-20) | now     |
 | ------------ | ------ | ------------------ | ------- |
-| titles       | 73     | 87                 | **100** |
-| characters   | 153    | 241                | **309** |
-| dependencies | 158    | 174                | **187** |
+| titles       | 73     | 87                 | **137** |
+| characters   | 153    | 241                | **402** |
+| dependencies | 158    | 174                | **224** |
 | cast entries | —      | 674                | —       |
 
 Verified after the fixes: `tsc --noEmit` clean, `next lint` clean, app renders with no console
@@ -21,7 +21,7 @@ unpinned ambiguous actors, and no dependency running backward through release ti
 
 ## Still open (deliberate)
 
-- **Posters**: 95 of 100 titles have artwork. `wonder-man` and `born-again-s3` are simply
+- **Posters**: 132 of 137 titles have artwork. `wonder-man` and `born-again-s3` are simply
   missing and would be picked up by a `pnpm posters --download` run. The other three are
   the unannounced titles below, which have no article to fetch from and are listed in
   `NO_ARTICLE` in the fetch script so that a blind Wikipedia search cannot hand them

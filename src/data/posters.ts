@@ -21,9 +21,9 @@ export type PosterEntry = {
 
 /** The sprite sheet every thumbnail on the map comes from: one request, total. */
 export const POSTER_ATLAS = {
-  src: "/posters/atlas.88b555f4.webp",
+  src: "/posters/atlas.b0eed064.webp",
   width: 1200,
-  height: 1258,
+  height: 1752,
 };
 
 export const POSTERS: Record<string, PosterEntry> = {
@@ -407,100 +407,285 @@ export const POSTERS: Record<string, PosterEntry> = {
     fit: "cover",
     cell: { x: 288, y: 852, w: 96, h: 142 },
   },
+  "punisher-1989": {
+    src: "/posters/punisher-1989.b8ce9f54.webp",
+    fit: "cover",
+    cell: { x: 384, y: 852, w: 96, h: 142 },
+  },
+  blade: {
+    src: "/posters/blade.0f1aaa9d.webp",
+    fit: "cover",
+    cell: { x: 480, y: 852, w: 96, h: 142 },
+  },
+  "blade-2": {
+    src: "/posters/blade-2.9b18861f.webp",
+    fit: "cover",
+    cell: { x: 576, y: 852, w: 96, h: 142 },
+  },
+  "blade-trinity": {
+    src: "/posters/blade-trinity.62fceaa2.webp",
+    fit: "cover",
+    cell: { x: 672, y: 852, w: 96, h: 142 },
+  },
+  "hulk-2003": {
+    src: "/posters/hulk-2003.84368dd9.webp",
+    fit: "cover",
+    cell: { x: 768, y: 852, w: 96, h: 142 },
+  },
+  "punisher-2004": {
+    src: "/posters/punisher-2004.2e27f382.webp",
+    fit: "cover",
+    cell: { x: 864, y: 852, w: 96, h: 142 },
+  },
+  "punisher-war-zone": {
+    src: "/posters/punisher-war-zone.16c06164.webp",
+    fit: "cover",
+    cell: { x: 960, y: 852, w: 96, h: 142 },
+  },
+  "ghost-rider-2007": {
+    src: "/posters/ghost-rider-2007.78d7f88a.webp",
+    fit: "cover",
+    cell: { x: 1056, y: 852, w: 96, h: 142 },
+  },
+  "spirit-of-vengeance": {
+    src: "/posters/spirit-of-vengeance.408cb770.webp",
+    fit: "cover",
+    cell: { x: 0, y: 994, w: 96, h: 142 },
+  },
   "agatha-all-along": {
     src: "/posters/agatha-all-along.b588a290.webp",
     fit: "contain",
-    cell: { x: 0, y: 994, w: 156, h: 88 },
+    cell: { x: 0, y: 1136, w: 156, h: 88 },
   },
   "avengers-secret-wars": {
     src: "/posters/avengers-secret-wars.1e325af5.webp",
     fit: "contain",
-    cell: { x: 156, y: 994, w: 156, h: 88 },
+    cell: { x: 156, y: 1136, w: 156, h: 88 },
   },
   "daredevil-born-again": {
     src: "/posters/daredevil-born-again.b0be50f4.webp",
     fit: "contain",
-    cell: { x: 312, y: 994, w: 156, h: 88 },
+    cell: { x: 312, y: 1136, w: 156, h: 88 },
   },
   echo: {
     src: "/posters/echo.dc2eff16.webp",
     fit: "contain",
-    cell: { x: 468, y: 994, w: 156, h: 88 },
+    cell: { x: 468, y: 1136, w: 156, h: 88 },
   },
   "eyes-of-wakanda": {
     src: "/posters/eyes-of-wakanda.f9bade7e.webp",
     fit: "contain",
-    cell: { x: 624, y: 994, w: 156, h: 88 },
+    cell: { x: 624, y: 1136, w: 156, h: 88 },
   },
   "falcon-winter-soldier": {
     src: "/posters/falcon-winter-soldier.1fdeabd1.webp",
     fit: "contain",
-    cell: { x: 780, y: 994, w: 156, h: 88 },
+    cell: { x: 780, y: 1136, w: 156, h: 88 },
   },
   hawkeye: {
     src: "/posters/hawkeye.50712f46.webp",
     fit: "contain",
-    cell: { x: 936, y: 994, w: 156, h: 88 },
+    cell: { x: 936, y: 1136, w: 156, h: 88 },
   },
   ironheart: {
     src: "/posters/ironheart.f645fb61.webp",
     fit: "contain",
-    cell: { x: 0, y: 1082, w: 156, h: 88 },
+    cell: { x: 0, y: 1224, w: 156, h: 88 },
   },
   "loki-s1": {
     src: "/posters/loki-s1.642aa9f7.webp",
     fit: "contain",
-    cell: { x: 156, y: 1082, w: 156, h: 88 },
+    cell: { x: 156, y: 1224, w: 156, h: 88 },
   },
   "loki-s2": {
     src: "/posters/loki-s2.642aa9f7.webp",
     fit: "contain",
-    cell: { x: 312, y: 1082, w: 156, h: 88 },
+    cell: { x: 312, y: 1224, w: 156, h: 88 },
   },
   "marvel-zombies": {
     src: "/posters/marvel-zombies.d8f43b55.webp",
     fit: "contain",
-    cell: { x: 468, y: 1082, w: 156, h: 88 },
+    cell: { x: 468, y: 1224, w: 156, h: 88 },
   },
   "moon-knight": {
     src: "/posters/moon-knight.363baeda.webp",
     fit: "contain",
-    cell: { x: 624, y: 1082, w: 156, h: 88 },
+    cell: { x: 624, y: 1224, w: 156, h: 88 },
   },
   "ms-marvel": {
     src: "/posters/ms-marvel.89a89cf5.webp",
     fit: "contain",
-    cell: { x: 780, y: 1082, w: 156, h: 88 },
+    cell: { x: 780, y: 1224, w: 156, h: 88 },
   },
   "secret-invasion": {
     src: "/posters/secret-invasion.95f6d449.webp",
     fit: "contain",
-    cell: { x: 936, y: 1082, w: 156, h: 88 },
+    cell: { x: 936, y: 1224, w: 156, h: 88 },
   },
   "she-hulk": {
     src: "/posters/she-hulk.be9161b3.webp",
     fit: "contain",
-    cell: { x: 0, y: 1170, w: 156, h: 88 },
+    cell: { x: 0, y: 1312, w: 156, h: 88 },
   },
   visionquest: {
     src: "/posters/visionquest.579553ff.webp",
     fit: "contain",
-    cell: { x: 156, y: 1170, w: 156, h: 88 },
+    cell: { x: 156, y: 1312, w: 156, h: 88 },
   },
   wandavision: {
     src: "/posters/wandavision.aea940a5.webp",
     fit: "contain",
-    cell: { x: 312, y: 1170, w: 156, h: 88 },
+    cell: { x: 312, y: 1312, w: 156, h: 88 },
   },
   "what-if-s1": {
     src: "/posters/what-if-s1.4580ec0e.webp",
     fit: "contain",
-    cell: { x: 468, y: 1170, w: 156, h: 88 },
+    cell: { x: 468, y: 1312, w: 156, h: 88 },
   },
   "your-friendly-neighborhood-spider-man": {
     src: "/posters/your-friendly-neighborhood-spider-man.cc3178ae.webp",
     fit: "contain",
-    cell: { x: 624, y: 1170, w: 156, h: 88 },
+    cell: { x: 624, y: 1312, w: 156, h: 88 },
+  },
+  "agents-of-shield-s1": {
+    src: "/posters/agents-of-shield-s1.05a52f1f.webp",
+    fit: "contain",
+    cell: { x: 780, y: 1312, w: 156, h: 88 },
+  },
+  "agents-of-shield-s2": {
+    src: "/posters/agents-of-shield-s2.05a52f1f.webp",
+    fit: "contain",
+    cell: { x: 936, y: 1312, w: 156, h: 88 },
+  },
+  "agent-carter-s1": {
+    src: "/posters/agent-carter-s1.4267b165.webp",
+    fit: "contain",
+    cell: { x: 0, y: 1400, w: 156, h: 88 },
+  },
+  "agents-of-shield-s3": {
+    src: "/posters/agents-of-shield-s3.05a52f1f.webp",
+    fit: "contain",
+    cell: { x: 156, y: 1400, w: 156, h: 88 },
+  },
+  "agent-carter-s2": {
+    src: "/posters/agent-carter-s2.4267b165.webp",
+    fit: "contain",
+    cell: { x: 312, y: 1400, w: 156, h: 88 },
+  },
+  "agents-of-shield-s4": {
+    src: "/posters/agents-of-shield-s4.05a52f1f.webp",
+    fit: "contain",
+    cell: { x: 468, y: 1400, w: 156, h: 88 },
+  },
+  "agents-of-shield-s5": {
+    src: "/posters/agents-of-shield-s5.05a52f1f.webp",
+    fit: "contain",
+    cell: { x: 624, y: 1400, w: 156, h: 88 },
+  },
+  inhumans: {
+    src: "/posters/inhumans.a78cde26.webp",
+    fit: "contain",
+    cell: { x: 780, y: 1400, w: 156, h: 88 },
+  },
+  "agents-of-shield-s6": {
+    src: "/posters/agents-of-shield-s6.05a52f1f.webp",
+    fit: "contain",
+    cell: { x: 936, y: 1400, w: 156, h: 88 },
+  },
+  "agents-of-shield-s7": {
+    src: "/posters/agents-of-shield-s7.05a52f1f.webp",
+    fit: "contain",
+    cell: { x: 0, y: 1488, w: 156, h: 88 },
+  },
+  "runaways-s1": {
+    src: "/posters/runaways-s1.edc6046c.webp",
+    fit: "contain",
+    cell: { x: 156, y: 1488, w: 156, h: 88 },
+  },
+  "cloak-dagger-s1": {
+    src: "/posters/cloak-dagger-s1.3909da0e.webp",
+    fit: "contain",
+    cell: { x: 312, y: 1488, w: 156, h: 88 },
+  },
+  "runaways-s2": {
+    src: "/posters/runaways-s2.edc6046c.webp",
+    fit: "contain",
+    cell: { x: 468, y: 1488, w: 156, h: 88 },
+  },
+  "cloak-dagger-s2": {
+    src: "/posters/cloak-dagger-s2.3909da0e.webp",
+    fit: "contain",
+    cell: { x: 624, y: 1488, w: 156, h: 88 },
+  },
+  "runaways-s3": {
+    src: "/posters/runaways-s3.edc6046c.webp",
+    fit: "contain",
+    cell: { x: 780, y: 1488, w: 156, h: 88 },
+  },
+  "jessica-jones-s1": {
+    src: "/posters/jessica-jones-s1.441c57de.webp",
+    fit: "contain",
+    cell: { x: 936, y: 1488, w: 156, h: 88 },
+  },
+  "luke-cage-s1": {
+    src: "/posters/luke-cage-s1.d65e1f30.webp",
+    fit: "contain",
+    cell: { x: 0, y: 1576, w: 156, h: 88 },
+  },
+  "iron-fist-s1": {
+    src: "/posters/iron-fist-s1.a5d8439d.webp",
+    fit: "contain",
+    cell: { x: 156, y: 1576, w: 156, h: 88 },
+  },
+  defenders: {
+    src: "/posters/defenders.1aac0b68.webp",
+    fit: "contain",
+    cell: { x: 312, y: 1576, w: 156, h: 88 },
+  },
+  "punisher-nf-s1": {
+    src: "/posters/punisher-nf-s1.495eb179.webp",
+    fit: "contain",
+    cell: { x: 468, y: 1576, w: 156, h: 88 },
+  },
+  "jessica-jones-s2": {
+    src: "/posters/jessica-jones-s2.441c57de.webp",
+    fit: "contain",
+    cell: { x: 624, y: 1576, w: 156, h: 88 },
+  },
+  "luke-cage-s2": {
+    src: "/posters/luke-cage-s2.d65e1f30.webp",
+    fit: "contain",
+    cell: { x: 780, y: 1576, w: 156, h: 88 },
+  },
+  "iron-fist-s2": {
+    src: "/posters/iron-fist-s2.a5d8439d.webp",
+    fit: "contain",
+    cell: { x: 936, y: 1576, w: 156, h: 88 },
+  },
+  "punisher-nf-s2": {
+    src: "/posters/punisher-nf-s2.495eb179.webp",
+    fit: "contain",
+    cell: { x: 0, y: 1664, w: 156, h: 88 },
+  },
+  "jessica-jones-s3": {
+    src: "/posters/jessica-jones-s3.441c57de.webp",
+    fit: "contain",
+    cell: { x: 156, y: 1664, w: 156, h: 88 },
+  },
+  "daredevil-nf-s1": {
+    src: "/posters/daredevil-nf-s1.5ee4533b.webp",
+    fit: "contain",
+    cell: { x: 312, y: 1664, w: 156, h: 88 },
+  },
+  "daredevil-nf-s2": {
+    src: "/posters/daredevil-nf-s2.5ee4533b.webp",
+    fit: "contain",
+    cell: { x: 468, y: 1664, w: 156, h: 88 },
+  },
+  "daredevil-nf-s3": {
+    src: "/posters/daredevil-nf-s3.5ee4533b.webp",
+    fit: "contain",
+    cell: { x: 624, y: 1664, w: 156, h: 88 },
   },
 };
 

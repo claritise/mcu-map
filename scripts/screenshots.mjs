@@ -40,14 +40,20 @@ function wheel([dx, dy]) {
 function litBox() {
   const p = document.querySelector(".react-flow__pane").getBoundingClientRect();
   const lit = [...document.querySelectorAll(".react-flow__node")].filter(
-    (n) => n.firstElementChild && +getComputedStyle(n.firstElementChild).opacity > 0.9,
+    (n) =>
+      n.firstElementChild &&
+      +getComputedStyle(n.firstElementChild).opacity > 0.9,
   );
   if (!lit.length) return null;
   const b = lit.map((n) => n.getBoundingClientRect());
   return {
     ids: lit.map((n) => n.dataset.id),
-    cx: (Math.min(...b.map((x) => x.left)) + Math.max(...b.map((x) => x.right))) / 2,
-    cy: (Math.min(...b.map((x) => x.top)) + Math.max(...b.map((x) => x.bottom))) / 2,
+    cx:
+      (Math.min(...b.map((x) => x.left)) + Math.max(...b.map((x) => x.right))) /
+      2,
+    cy:
+      (Math.min(...b.map((x) => x.top)) + Math.max(...b.map((x) => x.bottom))) /
+      2,
     px: p.left + p.width / 2,
     py: p.top + p.height / 2,
   };
@@ -110,8 +116,20 @@ const browser = await chromium.launch({ channel: "chrome" });
 
 // ── 2. Wolverine traced across the Fox run ────────────────────────────────
 for (const shot of [
-  { name: "wolverine-trace", width: 1200, height: 1500, zoom: 150, horizontal: false },
-  { name: "wolverine-trace-wide", width: 1600, height: 900, zoom: 110, horizontal: false },
+  {
+    name: "wolverine-trace",
+    width: 1200,
+    height: 1500,
+    zoom: 150,
+    horizontal: false,
+  },
+  {
+    name: "wolverine-trace-wide",
+    width: 1600,
+    height: 900,
+    zoom: 110,
+    horizontal: false,
+  },
 ]) {
   const page = await browser.newPage({
     viewport: { width: shot.width, height: shot.height },
@@ -122,11 +140,16 @@ for (const shot of [
 
   await page.evaluate(clickByText, "Character view");
   await sleep(500);
-  await page.evaluate(setInput, ['input[placeholder*="haracter"]', "Wolverine"]);
+  await page.evaluate(setInput, [
+    'input[placeholder*="haracter"]',
+    "Wolverine",
+  ]);
   await sleep(700);
   await page.evaluate(() => {
     const row = [...document.querySelectorAll("button")].find(
-      (b) => b.textContent.includes("Wolverine") && b.textContent.includes("Earth-10005"),
+      (b) =>
+        b.textContent.includes("Wolverine") &&
+        b.textContent.includes("Earth-10005"),
     );
     if (!row) throw new Error("no Wolverine row");
     row.click();

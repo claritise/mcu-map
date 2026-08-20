@@ -1073,4 +1073,218 @@ export const DEPENDENCIES: Dependency[] = [
     "recommended",
     "Eddie comes home from the MCU carrying what the spell left behind.",
   ),
+
+  // ── New Line · the Blade trilogy ───────────────────────────────────────
+  d(
+    "blade",
+    "blade-2",
+    "essential",
+    "Direct sequel, and it opens on what happened to Whistler.",
+  ),
+  d(
+    "blade-2",
+    "blade-trinity",
+    "recommended",
+    "Same Blade, and the hunt has escalated; Trinity assumes the run.",
+  ),
+
+  // ── Columbia · Ghost Rider ─────────────────────────────────────────────
+  d(
+    "ghost-rider-2007",
+    "spirit-of-vengeance",
+    "recommended",
+    "Same Blaze and the same bargain, but told again from scratch — you can start here and lose only the origin.",
+  ),
+
+  // ── Marvel Television · ABC ────────────────────────────────────────────
+  d(
+    "avengers",
+    "agents-of-shield-s1",
+    "essential",
+    "The show exists because of the Battle of New York, and because Coulson died in it.",
+  ),
+  d(
+    "agents-of-shield-s1",
+    "agents-of-shield-s2",
+    "essential",
+    "Serialised straight through.",
+  ),
+  d(
+    "agents-of-shield-s2",
+    "agents-of-shield-s3",
+    "essential",
+    "Serialised straight through.",
+  ),
+  d(
+    "agents-of-shield-s3",
+    "agents-of-shield-s4",
+    "essential",
+    "Serialised straight through.",
+  ),
+  d(
+    "agents-of-shield-s4",
+    "agents-of-shield-s5",
+    "essential",
+    "Serialised straight through.",
+  ),
+  d(
+    "agents-of-shield-s5",
+    "agents-of-shield-s6",
+    "essential",
+    "Serialised straight through.",
+  ),
+  d(
+    "agents-of-shield-s6",
+    "agents-of-shield-s7",
+    "essential",
+    "Serialised straight through.",
+  ),
+  d(
+    "winter-soldier",
+    "agents-of-shield-s2",
+    "essential",
+    "S.H.I.E.L.D. falls in the film, and everything the show does afterwards is rebuilt out of the wreckage.",
+  ),
+  d(
+    "first-avenger",
+    "agent-carter-s1",
+    "essential",
+    "Peggy's grief for Steve is the engine of the whole thing.",
+  ),
+  d("agent-carter-s1", "agent-carter-s2", "essential", "Direct continuation."),
+
+  // ── Marvel Television · Hulu and Freeform ──────────────────────────────
+  d("runaways-s1", "runaways-s2", "essential", "Serialised straight through."),
+  d("runaways-s2", "runaways-s3", "essential", "Serialised straight through."),
+  d(
+    "cloak-dagger-s1",
+    "cloak-dagger-s2",
+    "essential",
+    "Serialised straight through.",
+  ),
+  d(
+    "cloak-dagger-s2",
+    "runaways-s3",
+    "recommended",
+    "Tyrone and Tandy cross over into the final season.",
+  ),
+
+  // ── Marvel Netflix ─────────────────────────────────────────────────────
+  d(
+    "avengers",
+    "daredevil-nf-s1",
+    "recommended",
+    "Hell's Kitchen is being rebuilt after the Battle of New York, which the show only ever calls 'the incident'.",
+  ),
+  d(
+    "daredevil-nf-s1",
+    "daredevil-nf-s2",
+    "essential",
+    "Direct continuation, Fisk and all.",
+  ),
+  d(
+    "daredevil-nf-s2",
+    "daredevil-nf-s3",
+    "essential",
+    "Elektra and the Hand pay off here.",
+  ),
+  d(
+    "jessica-jones-s1",
+    "jessica-jones-s2",
+    "essential",
+    "Direct continuation; the second season is about what the first cost her.",
+  ),
+  d(
+    "jessica-jones-s2",
+    "jessica-jones-s3",
+    "essential",
+    "Trish's arc runs straight from it.",
+  ),
+  d(
+    "luke-cage-s1",
+    "luke-cage-s2",
+    "essential",
+    "Mariah and Shades carry over.",
+  ),
+  d("iron-fist-s1", "iron-fist-s2", "essential", "Direct continuation."),
+  d(
+    "jessica-jones-s1",
+    "luke-cage-s1",
+    "recommended",
+    "Luke is introduced in Jessica's first season, and he arrives in his own carrying what happened to his wife.",
+  ),
+  d(
+    "daredevil-nf-s2",
+    "punisher-nf-s1",
+    "essential",
+    "Frank's whole arc starts there; the series takes it as read.",
+  ),
+  d(
+    "punisher-nf-s1",
+    "punisher-nf-s2",
+    "essential",
+    "Direct continuation, Russo included.",
+  ),
+  d(
+    "daredevil-nf-s2",
+    "defenders",
+    "essential",
+    "Eight episodes to put four leads in a room; it explains none of them.",
+  ),
+  d(
+    "jessica-jones-s1",
+    "defenders",
+    "essential",
+    "Eight episodes to put four leads in a room; it explains none of them.",
+  ),
+  d(
+    "luke-cage-s1",
+    "defenders",
+    "essential",
+    "Eight episodes to put four leads in a room; it explains none of them.",
+  ),
+  d(
+    "iron-fist-s1",
+    "defenders",
+    "essential",
+    "Eight episodes to put four leads in a room; it explains none of them.",
+  ),
+  d(
+    "defenders",
+    "daredevil-nf-s3",
+    "essential",
+    "Season three opens on where The Defenders left Matt.",
+  ),
+  d(
+    "defenders",
+    "iron-fist-s2",
+    "essential",
+    "Danny takes on Matt's corner of the city afterwards.",
+  ),
+  d(
+    "defenders",
+    "luke-cage-s2",
+    "recommended",
+    "Luke comes back to Harlem off the back of it.",
+  ),
+  d(
+    "defenders",
+    "jessica-jones-s2",
+    "recommended",
+    "Picks Jessica up shortly after.",
+  ),
+
+  // ── Netflix → the MCU proper ───────────────────────────────────────────
+  d(
+    "daredevil-nf-s3",
+    "daredevil-born-again",
+    "essential",
+    "Born Again is a direct continuation: Matt, Fisk, Karen and Foggy all arrive with that history behind them.",
+  ),
+  d(
+    "punisher-nf-s2",
+    "punisher-one-last-kill",
+    "essential",
+    "The same Frank, picked up after the Netflix run.",
+  ),
 ];

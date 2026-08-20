@@ -1,6 +1,8 @@
 # Marvel viewing-dependency map
 
-Every Marvel Studios, Fox and Sony release as an interactive graph. Artwork cards are the
+Every Marvel release as an interactive graph — Marvel Studios, Fox, Sony, the
+Netflix and ABC television run, and the licensed films from before there was a
+Marvel Studios. Artwork cards are the
 nodes: 2:3 posters for films, 16:9 key art for series, laid out one row per release year
 with the oldest at the bottom. Click a title and the map lights up **only the things you
 should watch first**, with the reason on hover and the full cast in the panel. The whole
@@ -12,17 +14,17 @@ pnpm dev
 
 ## How it's put together
 
-| Piece        | File                                                                                                                        | What it holds                                                        |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| Types        | [src/data/types.ts](src/data/types.ts)                                                                                      | `Title`, `Character`, `CastEntry`, `Dependency`                      |
-| Characters   | [src/data/characters.ts](src/data/characters.ts)                                                                            | One entry per character, with every actor who has played them        |
-| Titles       | [titles.mcu.ts](src/data/titles.mcu.ts), [titles.fox.ts](src/data/titles.fox.ts), [titles.sony.ts](src/data/titles.sony.ts) | 100 films, series and specials with their cast                       |
-| Edges        | [src/data/dependencies.ts](src/data/dependencies.ts)                                                                        | 187 "watch this first" links, each with a strength and a reason      |
-| Facts        | [src/data/metadata.ts](src/data/metadata.ts)                                                                                | Runtime, release date, director, IMDb id. Generated, `pnpm metadata` |
-| Graph logic  | [src/lib/graph.ts](src/lib/graph.ts)                                                                                        | Layouts, ancestor traversal, topological watch order                 |
-| UI           | [src/app/_components/](src/app/_components/)                                                                                | Canvas, artwork node, year rail, detail panel                        |
-| Artwork      | [src/data/posters.ts](src/data/posters.ts)                                                                                  | Generated, see _Artwork_ below                                       |
-| Translations | [src/i18n/](src/i18n/)                                                                                                      | Chrome strings plus a Simplified-Chinese layer over every data file  |
+| Piece        | File                                                                                                                                                                            | What it holds                                                        |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Types        | [src/data/types.ts](src/data/types.ts)                                                                                                                                          | `Title`, `Character`, `CastEntry`, `Dependency`                      |
+| Characters   | [src/data/characters.ts](src/data/characters.ts)                                                                                                                                | One entry per character, with every actor who has played them        |
+| Titles       | [titles.mcu.ts](src/data/titles.mcu.ts), [.fox](src/data/titles.fox.ts), [.sony](src/data/titles.sony.ts), [.tv](src/data/titles.tv.ts), [.classic](src/data/titles.classic.ts) | 137 films, seasons and specials with their cast                      |
+| Edges        | [src/data/dependencies.ts](src/data/dependencies.ts)                                                                                                                            | 224 "watch this first" links, each with a strength and a reason      |
+| Facts        | [src/data/metadata.ts](src/data/metadata.ts)                                                                                                                                    | Runtime, release date, director, IMDb id. Generated, `pnpm metadata` |
+| Graph logic  | [src/lib/graph.ts](src/lib/graph.ts)                                                                                                                                            | Layouts, ancestor traversal, topological watch order                 |
+| UI           | [src/app/_components/](src/app/_components/)                                                                                                                                    | Canvas, artwork node, year rail, detail panel                        |
+| Artwork      | [src/data/posters.ts](src/data/posters.ts)                                                                                                                                      | Generated, see _Artwork_ below                                       |
+| Translations | [src/i18n/](src/i18n/)                                                                                                                                                          | Chrome strings plus a Simplified-Chinese layer over every data file  |
 
 ### The data model
 
@@ -94,7 +96,7 @@ cannot hand them somebody else's poster.
 Wikipedia is the default because it needs no signup, but its film posters are non-free
 fair-use files capped around 260×384, and most series only have a logo rather than key art,
 so `--download` (self-hosting) is the polite way to use it. That's what's checked in right
-now: 95 of 100 titles.
+now: 132 of 137 titles.
 
 TMDB is the better source: real artwork for series, higher resolution, and a CDN meant
 for hotlinking:
@@ -109,6 +111,34 @@ TMDB_READ_TOKEN=$(grep TMDB_READ_TOKEN .env | cut -d= -f2- | tr -d '"') pnpm pos
 
 TMDB asks for one line of attribution if you publish this. Either way, the artwork itself
 belongs to the studios. Fine for a personal map, worth a thought before you deploy it.
+
+### Television, and what counts as canon
+
+The Netflix shows are Earth-616, the same continuity as the films. That is not a
+guess: _Daredevil: Born Again_ picks Matt Murdock up mid-life with Foggy and
+Karen beside him, _Echo_ brings Fisk across, and _No Way Home_ hires Matt as a
+lawyer.
+
+The ABC, Hulu and Freeform shows — _Agents of S.H.I.E.L.D._, _Agent Carter_,
+_Inhumans_, _Runaways_, _Cloak & Dagger_ — get their own continuity, **Marvel
+Television**. They referenced the films constantly and the films have never once
+referenced them back, and Marvel has never said either way. A separate reality
+states that relationship rather than asserting a join nobody has confirmed.
+
+One node per season, matching Loki and Born Again, because a season is the unit
+people actually watch and the unit the prerequisites attach to.
+
+The pre-Marvel-Studios films — the Blade trilogy, Ang Lee's _Hulk_, three
+Punishers and two Ghost Riders — are each their own continuity under their own
+banner, because that is what they are: one character licensed out at a time to
+whoever would take it. None of them depends on anything outside its own run.
+Wesley Snipes walking into _Deadpool & Wolverine_ is a visit from New Line's
+continuity, and the panel says so, exactly as it does for Chris Evans' Human
+Torch.
+
+Six of these have no Earth designation anyone can point to, so they print
+`unlisted reality` rather than inventing a number — the rule the 2015 _Fantastic
+Four_ already followed.
 
 ## Adding a title
 
@@ -133,7 +163,7 @@ to be shouted about here.
 ## Reading the map
 
 Selection drives everything. Nothing is drawn until you click a title, because the full
-edge set is an unreadable hairball across 100 titles. Cards are focusable, so Tab reaches
+edge set is an unreadable hairball across 137 titles. Cards are focusable, so Tab reaches
 them and Enter or Space opens one.
 
 | Border     | Means                                                                               |

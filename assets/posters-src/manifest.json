@@ -378,5 +378,153 @@
   "your-friendly-neighborhood-spider-man": {
     "file": "your-friendly-neighborhood-spider-man.png",
     "fit": "contain"
+  },
+  "agents-of-shield-s1": {
+    "file": "agents-of-shield-s1.jpg",
+    "fit": "contain"
+  },
+  "agents-of-shield-s2": {
+    "file": "agents-of-shield-s2.jpg",
+    "fit": "contain"
+  },
+  "agent-carter-s1": {
+    "file": "agent-carter-s1.png",
+    "fit": "contain"
+  },
+  "agents-of-shield-s3": {
+    "file": "agents-of-shield-s3.jpg",
+    "fit": "contain"
+  },
+  "agent-carter-s2": {
+    "file": "agent-carter-s2.png",
+    "fit": "contain"
+  },
+  "agents-of-shield-s4": {
+    "file": "agents-of-shield-s4.jpg",
+    "fit": "contain"
+  },
+  "agents-of-shield-s5": {
+    "file": "agents-of-shield-s5.jpg",
+    "fit": "contain"
+  },
+  "inhumans": {
+    "file": "inhumans.jpg",
+    "fit": "contain"
+  },
+  "agents-of-shield-s6": {
+    "file": "agents-of-shield-s6.jpg",
+    "fit": "contain"
+  },
+  "agents-of-shield-s7": {
+    "file": "agents-of-shield-s7.jpg",
+    "fit": "contain"
+  },
+  "runaways-s1": {
+    "file": "runaways-s1.jpg",
+    "fit": "contain"
+  },
+  "cloak-dagger-s1": {
+    "file": "cloak-dagger-s1.jpg",
+    "fit": "contain"
+  },
+  "runaways-s2": {
+    "file": "runaways-s2.jpg",
+    "fit": "contain"
+  },
+  "cloak-dagger-s2": {
+    "file": "cloak-dagger-s2.jpg",
+    "fit": "contain"
+  },
+  "runaways-s3": {
+    "file": "runaways-s3.jpg",
+    "fit": "contain"
+  },
+  "jessica-jones-s1": {
+    "file": "jessica-jones-s1.jpg",
+    "fit": "contain"
+  },
+  "luke-cage-s1": {
+    "file": "luke-cage-s1.png",
+    "fit": "contain"
+  },
+  "iron-fist-s1": {
+    "file": "iron-fist-s1.png",
+    "fit": "contain"
+  },
+  "defenders": {
+    "file": "defenders.jpg",
+    "fit": "contain"
+  },
+  "punisher-nf-s1": {
+    "file": "punisher-nf-s1.jpg",
+    "fit": "contain"
+  },
+  "jessica-jones-s2": {
+    "file": "jessica-jones-s2.jpg",
+    "fit": "contain"
+  },
+  "luke-cage-s2": {
+    "file": "luke-cage-s2.png",
+    "fit": "contain"
+  },
+  "iron-fist-s2": {
+    "file": "iron-fist-s2.png",
+    "fit": "contain"
+  },
+  "punisher-nf-s2": {
+    "file": "punisher-nf-s2.jpg",
+    "fit": "contain"
+  },
+  "jessica-jones-s3": {
+    "file": "jessica-jones-s3.jpg",
+    "fit": "contain"
+  },
+  "punisher-1989": {
+    "file": "punisher-1989.jpg",
+    "fit": "cover"
+  },
+  "blade": {
+    "file": "blade.jpg",
+    "fit": "cover"
+  },
+  "blade-2": {
+    "file": "blade-2.jpg",
+    "fit": "cover"
+  },
+  "blade-trinity": {
+    "file": "blade-trinity.jpg",
+    "fit": "cover"
+  },
+  "hulk-2003": {
+    "file": "hulk-2003.jpg",
+    "fit": "cover"
+  },
+  "punisher-2004": {
+    "file": "punisher-2004.jpg",
+    "fit": "cover"
+  },
+  "punisher-war-zone": {
+    "file": "punisher-war-zone.jpg",
+    "fit": "cover"
+  },
+  "ghost-rider-2007": {
+    "file": "ghost-rider-2007.jpg",
+    "fit": "cover"
+  },
+  "spirit-of-vengeance": {
+    "file": "spirit-of-vengeance.jpg",
+    "fit": "cover"
+  },
+  "daredevil-nf-s1": {
+    "file": "daredevil-nf-s1.jpg",
+    "fit": "contain"
+  },
+  "daredevil-nf-s2": {
+    "file": "daredevil-nf-s2.jpg",
+    "fit": "contain"
+  },
+  "daredevil-nf-s3": {
+    "file": "daredevil-nf-s3.jpg",
+    "fit": "contain"
   }
 }
