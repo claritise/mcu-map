@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "next lint && tsc --noEmit",
+    "check": "next lint && tsc --noEmit && node scripts/check-data.mjs && node scripts/check-i18n.mjs",
     "dev": "next dev --turbo",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
@@ -17,7 +17,8 @@
     "posters": "node scripts/fetch-posters.mjs",
     "posters:optimize": "node scripts/optimize-posters.mjs",
     "metadata": "node scripts/fetch-metadata.mjs",
-    "i18n:check": "node scripts/check-i18n.mjs"
+    "i18n:check": "node scripts/check-i18n.mjs",
+    "data:check": "node scripts/check-data.mjs"
   },
   "dependencies": {
     "@react-spring/web": "^10.1.2",
