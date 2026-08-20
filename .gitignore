@@ -55,3 +55,8 @@ yarn-error.log*
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Agent worktrees. Created under the repo so a subagent can work in isolation,
+# removed when it finishes — but a run that is still going would otherwise show
+# up as untracked files in everyone else's `git status`.
+/.claude/worktrees/
