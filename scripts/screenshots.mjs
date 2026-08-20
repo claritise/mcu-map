@@ -1,4 +1,10 @@
-import { chromium } from "playwright";
+/*
+ * From @playwright/test rather than from `playwright`, which was never in
+ * package.json — so this script had been failing on its own first line. The
+ * test runner depends on the same driver and is a devDependency for `pnpm e2e`,
+ * and re-exports `chromium` unchanged.
+ */
+import { chromium } from "@playwright/test";
 
 const URL = process.env.MAP_URL ?? "http://localhost:3100";
 const OUT = process.env.OUT_DIR ?? ".";

@@ -48,3 +48,10 @@ yarn-error.log*
 # the optimised WebP in public/posters/ is ever served.
 /assets/posters-src/*
 !/assets/posters-src/manifest.json
+
+# playwright (`pnpm e2e`): the browser cache, and the traces and HTML report a
+# run leaves behind.
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

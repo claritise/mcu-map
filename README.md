@@ -152,13 +152,38 @@ Four_ already followed.
 Ids are validated by TypeScript at the type level only. The full check:
 
 ```bash
-pnpm typecheck && pnpm lint && pnpm i18n:check && pnpm format:check
+pnpm check          # lint, types, pnpm data:check, pnpm i18n:check, unit tests
+pnpm format:check
 ```
 
 `pnpm i18n:check` fails on anything in `src/data` with no Simplified-Chinese counterpart,
 and on translations keyed to something that no longer exists. The app itself never breaks
 on a gap — every lookup falls back to the English source — which is exactly why the gap has
 to be shouted about here.
+
+## Tests
+
+```bash
+pnpm test   # vitest, tests/unit — the pure logic. Also part of pnpm check
+pnpm e2e    # playwright, tests/e2e — a real browser at two viewport sizes
+```
+
+The unit tests run against the real dataset rather than fixtures: it is static, `pnpm
+data:check` already guarantees it is consistent, and the things that go wrong in
+`src/lib/graph.ts` — a `maxKind` filter that prunes an edge but not the walk behind it, a
+topological sort that drops everything downstream of one bad edge — need a graph of this
+shape to show up at all.
+
+`pnpm e2e` is separate, and deliberately not part of `pnpm check`, because it needs a
+browser downloaded (`pnpm exec playwright install chromium`) and a dev server running. It
+pins the three layout bugs from the thread: no card stranded under the phone's controls
+sheet, a tapped card framed clear of the sheet with its dependency lines drawn, and a
+detail panel with a window worth scrolling on a 720px-tall laptop column. Those are
+comparisons between a rendered card's box and the rendered chrome's, so nothing short of a
+real browser at a real size can make them.
+
+Both run on every push and pull request, alongside a production build, via
+[.github/workflows/ci.yml](.github/workflows/ci.yml).
 
 ## Reading the map
 

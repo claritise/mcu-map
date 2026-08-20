@@ -1,0 +1,84 @@
+# Everything `pnpm check` covers, plus the two things it deliberately does not:
+# a real production build, and a real browser.
+#
+# Split into three jobs rather than one script so a red run says which kind of
+# thing broke from the job name alone — a type error, a build, or a camera
+# regression are three different conversations.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A second push to the same branch makes the first run's answer irrelevant.
+# `main` is exempt: those runs are the record of what shipped.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  check:
+    name: lint, types, data, unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # No version pinned: the action reads `packageManager` from package.json,
+      # so the lockfile and CI can never drift to different pnpm majors.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      # `--frozen-lockfile` is the default in CI, and it is the point: a
+      # dependency that only resolves because pnpm was allowed to update the
+      # lockfile is a dependency nobody has on their machine.
+      - run: pnpm install
+      - run: pnpm check
+      - run: pnpm format:check
+
+  build:
+    name: production build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
+      # `pnpm build`, never a bare `next build`. Roughly one clean build in
+      # three to five dies in Next's own page-data collection under CPU
+      # contention — which is to say, here — and scripts/build.mjs recognises
+      # that one failure by its signature and runs again. Read the file before
+      # changing this line: calling next directly puts a random red X on
+      # unrelated pull requests, and passing the retry off as flakiness is how
+      # a real build break gets ignored.
+      - run: pnpm build
+
+  e2e:
+    name: browser
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
+      # Chromium only. These specs assert geometry at two fixed viewport sizes;
+      # a second engine would triple the install for measurements that are about
+      # this app's camera rather than about any browser's quirks.
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm e2e
+      # The interesting failures here are visual, and a stack trace does not
+      # show a card sitting under a sheet. The trace does.
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+          if-no-files-found: ignore
