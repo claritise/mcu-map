@@ -196,7 +196,7 @@ export function DetailPanel({
   if (collapsed) {
     const folded = REALITIES[title.reality];
     return (
-      <aside className="bg-surface flex shrink-0 items-center gap-3 rounded-lg border border-white/5 py-2 pr-2 pl-3 shadow-2xl shadow-black/60">
+      <aside className="bg-surface flex shrink-0 items-center gap-3 rounded-lg border border-white/5 py-2 pr-2 pl-3 shadow-2xl shadow-black/60 max-lg:rounded-b-none max-lg:border-x-0 max-lg:border-b-0 max-lg:pb-[calc(0.5rem+env(safe-area-inset-bottom))]">
         <span
           className="h-8 w-0.5 shrink-0 rounded-full"
           style={{ backgroundColor: folded.accent }}
@@ -269,7 +269,7 @@ export function DetailPanel({
   const links = watchLinks(title);
 
   return (
-    <aside className="bg-surface flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-white/5 shadow-2xl shadow-black/60">
+    <aside className="bg-surface flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-white/5 shadow-2xl shadow-black/60 max-lg:rounded-b-none max-lg:border-x-0 max-lg:border-b-0">
       <header className="p-4">
         <div className="flex gap-3">
           <Artwork id={titleId} name={t.titleName(title)} />
@@ -415,7 +415,7 @@ export function DetailPanel({
 
       <div className="hairline mx-4" />
 
-      <div className="flex-1 overflow-y-auto px-4 py-4">
+      <div className="flex-1 overflow-y-auto px-4 py-4 max-lg:pb-[calc(1rem+env(safe-area-inset-bottom))]">
         <section>
           <div className="flex items-baseline justify-between gap-3">
             <h3 className={`${RUN_LABEL} text-text-secondary`}>

@@ -158,6 +158,24 @@ const PANEL_SPRING = { tension: 560, friction: 40 };
 // Shared chrome recipes, so every floating surface reads identically.
 const SURFACE =
   "rounded-lg border border-white/5 bg-surface shadow-xl shadow-black/40";
+
+/**
+ * What turns a floating card into a drawer, on a phone only.
+ *
+ * The sheet meets the left, right and bottom edges of the screen, so it keeps
+ * a radius and a border along the top — where it actually has an edge against
+ * the map — and drops both everywhere else. A rounded corner against the
+ * bottom of a display reads as a card someone forgot to finish.
+ */
+const DRAWER_EDGE = "max-lg:rounded-b-none max-lg:border-x-0 max-lg:border-b-0";
+
+/**
+ * Clearance for the home indicator. The layout opts into `viewportFit: cover`
+ * so the map can paint under it, which means anything the drawer puts at its
+ * own bottom edge — the pull, the last row of a cast list — would otherwise
+ * sit beneath the bar.
+ */
+const SAFE_BOTTOM = "max-lg:pb-[env(safe-area-inset-bottom)]";
 const RUN_LABEL =
   "text-[11px] font-semibold uppercase tracking-[0.12em] text-text-secondary";
 const FIELD =
@@ -786,13 +804,18 @@ function MapCanvas() {
           screen and the chrome floats over the bottom of it. */}
       <aside
         ref={chrome}
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex max-h-[70dvh] flex-col justify-end gap-3 p-3 lg:pointer-events-auto lg:static lg:h-full lg:max-h-none lg:w-[396px] lg:shrink-0 lg:justify-start"
+        /* On a phone this is a drawer: flush to both edges and to the bottom
+           of the screen, so it reads as part of the device rather than as a
+           card floating above it. On a laptop the same markup is a column of
+           separate cards beside the map, which is why the padding and the gap
+           only come back at `lg`. */
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex max-h-[70dvh] flex-col justify-end gap-0 p-0 lg:pointer-events-auto lg:static lg:h-full lg:max-h-none lg:w-[396px] lg:shrink-0 lg:justify-start lg:gap-3 lg:p-3"
       >
         {/* One surface for the whole control set: filters, camera, legend. */}
         <animated.div
           {...sheetSwipe.swipe}
           style={intro}
-          className={`${SURFACE} pointer-events-auto min-h-0 shrink overflow-y-auto ${
+          className={`${SURFACE} ${DRAWER_EDGE} pointer-events-auto min-h-0 shrink overflow-y-auto ${
             /* One card at a time on a phone: reading a title takes the sheet,
                and folding the details is for getting the MAP back — handing the
                controls their 500px again would just re-cover it. */
@@ -1101,7 +1124,9 @@ function MapCanvas() {
               draggable even though a tap is all it takes. */}
           {/* Sticky, because with the drawer open the sheet scrolls and a pull
               you have to scroll down to reach is not a pull. */}
-          <div className="bg-surface sticky bottom-0 lg:hidden">
+          <div
+            className={`bg-surface sticky bottom-0 lg:hidden ${SAFE_BOTTOM}`}
+          >
             <div className="hairline mx-4" />
             <button
               onClick={() => {
